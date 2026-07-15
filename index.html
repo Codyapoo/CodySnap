@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="theme-color" content="#12141A">
 
 <title>Nén Ảnh Online Miễn Phí | SnapLite - Nén, Resize, Xoay & Chuyển Đổi Ảnh JPG PNG WEBP</title>
@@ -40,7 +40,8 @@
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%2312141A%22/><rect x=%2216%22 y=%2216%22 width=%2268%22 height=%2268%22 rx=%2216%22 fill=%22none%22 stroke=%22%23F2A65A%22 stroke-width=%228%22/><path d=%22M40 40L24 24M40 40H27M40 40V27%22 stroke=%22%235EEAD4%22 stroke-width=%228%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/><path d=%22M60 60L76 76M60 60H73M60 60V73%22 stroke=%22%235EEAD4%22 stroke-width=%228%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>">
 
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<!-- Sử dụng CDN Tailwind CSS v3 siêu ổn định trên cả Điện thoại & PC -->
+<script src="https://cdn.tailwindcss.com"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -131,7 +132,7 @@
             <path d="M9 9L3 3M9 9H4M9 9V4"/><path d="M15 15L21 21M15 15H20M15 15V20"/>
           </svg>
         </span>
-        <span class="font-display font-700 text-lg tracking-tight">Snap<span class="text-[var(--amber)]">Lite</span></span>
+        <span class="font-display font-bold text-lg tracking-tight">Snap<span class="text-[var(--amber)]">Lite</span></span>
       </div>
       <p class="text-xs font-mono text-[var(--muted)]">Miễn phí · Không giới hạn · Không watermark</p>
     </div>
@@ -145,7 +146,7 @@
 
   <main class="max-w-6xl mx-auto px-6">
     <section class="pt-14 pb-6 text-center">
-      <h1 class="font-display font-700 text-5xl leading-tight">
+      <h1 class="font-display font-bold text-5xl leading-tight">
         Nén, resize &amp; chuyển đổi ảnh<br> <span class="text-[var(--amber)]">ngay trên trình duyệt</span>
       </h1>
       <p class="mt-4 text-[var(--muted)] max-w-xl mx-auto text-base">
@@ -165,21 +166,21 @@
         <div class="mx-auto w-14 h-14 rounded-full bg-[var(--panel-2)] flex items-center justify-center mb-4">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
         </div>
-        <p class="font-display font-600 text-lg">Kéo thả ảnh vào đây, hoặc <span class="text-[var(--amber)] underline">chọn từ máy</span></p>
+        <p class="font-display font-semibold text-lg">Kéo thả ảnh vào đây, hoặc <span class="text-[var(--amber)] underline">chọn từ máy</span></p>
         <p class="mt-2 text-xs font-mono text-[var(--muted)]">Hỗ trợ .PNG · .JPG · .WEBP · dán Ctrl+V</p>
       </div>
 
       <div class="rounded-xl bg-[var(--panel)] border border-white/5 p-6 grid grid-cols-3 gap-5 items-end">
         <div>
           <div class="flex justify-between items-baseline mb-2">
-            <label for="quality" class="text-sm font-600">Mức độ nén</label>
+            <label for="quality" class="text-sm font-semibold">Mức độ nén</label>
             <span id="qualityVal" class="font-mono text-[var(--cyan)] text-sm">80%</span>
           </div>
           <input id="quality" type="range" min="1" max="100" value="80" class="w-full">
           <div class="flex justify-between text-[10px] font-mono text-[var(--muted)] mt-1"><span>Nén mạnh</span><span>Giữ chất lượng</span></div>
         </div>
         <div>
-          <label for="format" class="text-sm font-600 block mb-2">Định dạng đầu ra</label>
+          <label for="format" class="text-sm font-semibold block mb-2">Định dạng đầu ra</label>
           <select id="format" class="w-full bg-[var(--panel-2)] border border-white/10 rounded-md px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--amber)]">
             <option value="auto">Giữ nguyên định dạng gốc</option>
             <option value="image/jpeg">Chuyển sang JPG</option>
@@ -188,7 +189,7 @@
           </select>
         </div>
         <div>
-          <label for="resize" class="text-sm font-600 block mb-2">Kích thước</label>
+          <label for="resize" class="text-sm font-semibold block mb-2">Kích thước</label>
           <select id="resize" class="w-full bg-[var(--panel-2)] border border-white/10 rounded-md px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--amber)]">
             <option value="0">Giữ nguyên kích thước</option>
             <option value="1920">Tối đa 1920px (Full HD)</option>
@@ -199,16 +200,16 @@
       </div>
 
       <div class="flex gap-3 mt-5">
-        <button id="compressBtn" class="font-display font-600 bg-[var(--amber)] text-[#12141A] px-5 py-3 rounded-md hover:brightness-110 active:scale-[0.98] transition disabled:opacity-40 disabled:pointer-events-none">Nén ảnh ngay</button>
-        <button id="downloadAllBtn" class="font-display font-600 border border-[var(--cyan)]/50 text-[var(--cyan)] px-5 py-3 rounded-md hover:bg-[var(--cyan)]/10 transition hidden">Tải tất cả (.zip)</button>
-        <button id="clearAllBtnD" class="font-display font-600 border border-white/10 text-[var(--muted)] px-5 py-3 rounded-md hover:bg-white/5 transition hidden ml-auto">Xóa tất cả</button>
+        <button id="compressBtn" class="font-display font-semibold bg-[var(--amber)] text-[#12141A] px-5 py-3 rounded-md hover:brightness-110 active:scale-[0.98] transition disabled:opacity-40 disabled:pointer-events-none">Nén ảnh ngay</button>
+        <button id="downloadAllBtn" class="font-display font-semibold border border-[var(--cyan)]/50 text-[var(--cyan)] px-5 py-3 rounded-md hover:bg-[var(--cyan)]/10 transition hidden">Tải tất cả (.zip)</button>
+        <button id="clearAllBtnD" class="font-display font-semibold border border-white/10 text-[var(--muted)] px-5 py-3 rounded-md hover:bg-white/5 transition hidden ml-auto">Xóa tất cả</button>
       </div>
 
       <div id="statsBarD" class="hidden fade-in mt-4 rounded-lg bg-[var(--panel-2)] border border-[var(--cyan)]/20 px-4 py-3 text-sm font-mono flex flex-wrap gap-x-6 gap-y-1 items-center">
-        <span><span id="statCountD" class="text-[var(--ink)] font-600">0</span> ảnh đã nén</span>
+        <span><span id="statCountD" class="text-[var(--ink)] font-semibold">0</span> ảnh đã nén</span>
         <span class="text-[var(--muted)] line-through" id="statOrigD">0 KB</span>
         <span>→</span>
-        <span class="text-[var(--cyan)] font-600" id="statNewD">0 KB</span>
+        <span class="text-[var(--cyan)] font-semibold" id="statNewD">0 KB</span>
         <span class="bg-[var(--cyan)]/10 text-[var(--cyan)] px-2 py-0.5 rounded-full" id="statPctD">-0%</span>
       </div>
 
@@ -229,7 +230,7 @@
           <path d="M9 9L3 3M9 9H4M9 9V4"/><path d="M15 15L21 21M15 15H20M15 15V20"/>
         </svg>
       </span>
-      <span class="font-display font-700 text-base">Snap<span class="text-[var(--amber)]">Lite</span></span>
+      <span class="font-display font-bold text-base">Snap<span class="text-[var(--amber)]">Lite</span></span>
     </div>
     <button id="mobileSettingsBtn" class="w-9 h-9 rounded-lg bg-[var(--panel)] border border-white/10 flex items-center justify-center">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
@@ -244,7 +245,7 @@
   </div>
 
   <div class="px-4 pt-6 pb-2 text-center">
-    <h1 class="font-display font-700 text-2xl leading-snug">Nén ảnh nhanh<br><span class="text-[var(--amber)]">ngay trên điện thoại</span></h1>
+    <h1 class="font-display font-bold text-2xl leading-snug">Nén ảnh nhanh<br><span class="text-[var(--amber)]">ngay trên điện thoại</span></h1>
     <p class="mt-2 text-[var(--muted)] text-xs">Chọn ảnh, chỉnh mức nén, tải xuống — không cần cài app.</p>
   </div>
 
@@ -253,15 +254,15 @@
       <span class="w-11 h-11 rounded-full bg-[var(--panel-2)] flex items-center justify-center">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
       </span>
-      <span class="font-display font-600 text-sm">Thêm ảnh từ máy</span>
+      <span class="font-display font-semibold text-sm">Thêm ảnh từ máy</span>
       <span class="text-[10px] font-mono text-[var(--muted)]">.PNG · .JPG · .WEBP</span>
     </button>
   </div>
 
   <div class="px-4 mt-4 flex items-center justify-between gap-2">
     <div id="statsBarM" class="hidden fade-in flex-1 rounded-lg bg-[var(--panel-2)] border border-[var(--cyan)]/20 px-3 py-2 text-[11px] font-mono flex flex-wrap gap-x-3 gap-y-0.5 items-center">
-      <span><span id="statCountM" class="text-[var(--ink)] font-600">0</span> ảnh</span>
-      <span class="text-[var(--muted)] line-through" id="statOrigM">0KB</span>→<span class="text-[var(--cyan)] font-600" id="statNewM">0KB</span>
+      <span><span id="statCountM" class="text-[var(--ink)] font-semibold">0</span> ảnh</span>
+      <span class="text-[var(--muted)] line-through" id="statOrigM">0KB</span>→<span class="text-[var(--cyan)] font-semibold" id="statNewM">0KB</span>
       <span class="bg-[var(--cyan)]/10 text-[var(--cyan)] px-1.5 py-0.5 rounded-full" id="statPctM">-0%</span>
     </div>
     <button id="clearAllBtnM" class="hidden shrink-0 text-[11px] font-mono text-[var(--muted)] border border-white/10 rounded-lg px-3 py-2">Xóa tất cả</button>
@@ -285,22 +286,22 @@
   <section class="pb-10 sm:border-t border-white/5 sm:pt-10">
     <div class="grid md:grid-cols-[1fr_260px] gap-8">
       <div>
-        <h2 class="font-display font-700 text-xl sm:text-2xl mb-4">Vì sao nên nén ảnh trước khi đăng tải?</h2>
+        <h2 class="font-display font-bold text-xl sm:text-2xl mb-4">Vì sao nên nén ảnh trước khi đăng tải?</h2>
         <p class="text-sm text-[var(--muted)] leading-relaxed mb-4">
           Ảnh dung lượng lớn làm chậm tốc độ tải trang, tốn băng thông và ảnh hưởng trực tiếp đến thứ hạng SEO trên Google. SnapLite giúp bạn giảm dung lượng ảnh xuống tới 90%, resize theo kích thước mong muốn và xoay ảnh đúng chiều — tất cả trong một công cụ duy nhất, không cần cài đặt phần mềm.
         </p>
-        <h2 class="font-display font-700 text-lg sm:text-xl mb-3 mt-8">Câu hỏi thường gặp</h2>
+        <h2 class="font-display font-bold text-lg sm:text-xl mb-3 mt-8">Câu hỏi thường gặp</h2>
         <div class="space-y-3">
           <details class="bg-[var(--panel)] rounded-md p-4">
-            <summary class="cursor-pointer font-600 text-sm">Ảnh của tôi có được gửi lên server không?</summary>
+            <summary class="cursor-pointer font-semibold text-sm">Ảnh của tôi có được gửi lên server không?</summary>
             <p class="text-xs text-[var(--muted)] mt-2">Không. Toàn bộ quá trình nén, resize, xoay và chuyển đổi diễn ra ngay trên trình duyệt của bạn bằng JavaScript (Canvas API). Ảnh không bao giờ rời khỏi thiết bị của bạn.</p>
           </details>
           <details class="bg-[var(--panel)] rounded-md p-4">
-            <summary class="cursor-pointer font-600 text-sm">Giao diện trên điện thoại có khác trên máy tính không?</summary>
+            <summary class="cursor-pointer font-semibold text-sm">Giao diện trên điện thoại có khác trên máy tính không?</summary>
             <p class="text-xs text-[var(--muted)] mt-2">Có. SnapLite dùng 2 bộ giao diện riêng biệt: trên máy tính có thanh trượt so sánh trực tiếp trên ảnh, còn trên điện thoại tối ưu thành danh sách gọn, cài đặt nằm trong bảng trượt lên từ dưới để dễ thao tác bằng ngón tay.</p>
           </details>
           <details class="bg-[var(--panel)] rounded-md p-4">
-            <summary class="cursor-pointer font-600 text-sm">Định dạng nào giúp giảm dung lượng nhiều nhất?</summary>
+            <summary class="cursor-pointer font-semibold text-sm">Định dạng nào giúp giảm dung lượng nhiều nhất?</summary>
             <p class="text-xs text-[var(--muted)] mt-2">WEBP thường cho dung lượng nhỏ nhất với chất lượng tương đương JPG, và có hỗ trợ trong suốt (transparency) như PNG.</p>
           </details>
         </div>
@@ -322,8 +323,8 @@
 <!-- ================= Thanh hành động cố định (mobile) ================= -->
 <div id="mobileBar" class="sm:hidden fixed bottom-0 inset-x-0 z-50 bg-[var(--panel)]/95 backdrop-blur border-t border-white/10 p-3 hidden">
   <div class="flex gap-2">
-    <button id="mobileCompressBtn" class="flex-1 font-display font-600 bg-[var(--amber)] text-[#12141A] py-3 rounded-md active:scale-[0.98] transition">Nén ảnh</button>
-    <button id="mobileDownloadAllBtn" class="flex-1 font-display font-600 border border-[var(--cyan)]/50 text-[var(--cyan)] py-3 rounded-md hidden">Tải tất cả</button>
+    <button id="mobileCompressBtn" class="flex-1 font-display font-semibold bg-[var(--amber)] text-[#12141A] py-3 rounded-md active:scale-[0.98] transition">Nén ảnh</button>
+    <button id="mobileDownloadAllBtn" class="flex-1 font-display font-semibold border border-[var(--cyan)]/50 text-[var(--cyan)] py-3 rounded-md hidden">Tải tất cả</button>
   </div>
 </div>
 
@@ -332,7 +333,7 @@
 <div id="mobileSheet" class="sm:hidden fixed inset-x-0 bottom-0 z-[70] bg-[var(--panel)] rounded-t-2xl border-t border-white/10 p-5">
   <div class="w-10 h-1 rounded-full bg-white/15 mx-auto mb-4"></div>
   <div class="flex items-center justify-between mb-4">
-    <h3 class="font-display font-700 text-base">Tùy chỉnh nén</h3>
+    <h3 class="font-display font-bold text-base">Tùy chỉnh nén</h3>
     <button id="mobileSheetClose" class="w-8 h-8 rounded-lg bg-[var(--panel-2)] flex items-center justify-center">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
@@ -340,14 +341,14 @@
   <div class="space-y-5">
     <div>
       <div class="flex justify-between items-baseline mb-2">
-        <label for="quality-m" class="text-sm font-600">Mức độ nén</label>
+        <label for="quality-m" class="text-sm font-semibold">Mức độ nén</label>
         <span id="qualityVal-m" class="font-mono text-[var(--cyan)] text-sm">80%</span>
       </div>
       <input id="quality-m" type="range" min="1" max="100" value="80" class="w-full">
       <div class="flex justify-between text-[10px] font-mono text-[var(--muted)] mt-1"><span>Nén mạnh</span><span>Giữ chất lượng</span></div>
     </div>
     <div>
-      <label for="format-m" class="text-sm font-600 block mb-2">Định dạng đầu ra</label>
+      <label for="format-m" class="text-sm font-semibold block mb-2">Định dạng đầu ra</label>
       <select id="format-m" class="w-full bg-[var(--panel-2)] border border-white/10 rounded-md px-3 py-3 text-sm">
         <option value="auto">Giữ nguyên định dạng gốc</option>
         <option value="image/jpeg">Chuyển sang JPG</option>
@@ -356,7 +357,7 @@
       </select>
     </div>
     <div>
-      <label for="resize-m" class="text-sm font-600 block mb-2">Kích thước</label>
+      <label for="resize-m" class="text-sm font-semibold block mb-2">Kích thước</label>
       <select id="resize-m" class="w-full bg-[var(--panel-2)] border border-white/10 rounded-md px-3 py-3 text-sm">
         <option value="0">Giữ nguyên kích thước</option>
         <option value="1920">Tối đa 1920px (Full HD)</option>
@@ -364,7 +365,7 @@
         <option value="800">Tối đa 800px (Web nhỏ)</option>
       </select>
     </div>
-    <button id="mobileSheetDone" class="w-full font-display font-600 bg-[var(--amber)] text-[#12141A] py-3 rounded-md">Xong</button>
+    <button id="mobileSheetDone" class="w-full font-display font-semibold bg-[var(--amber)] text-[#12141A] py-3 rounded-md">Xong</button>
   </div>
 </div>
 
@@ -391,14 +392,14 @@
       </div>
     </div>
     <div class="p-4">
-      <p class="fileName text-xs truncate font-600 mb-2"></p>
+      <p class="fileName text-xs truncate font-semibold mb-2"></p>
       <div class="flex items-center justify-between font-mono text-sm flex-wrap gap-1">
         <span class="origSize text-[var(--muted)] line-through"></span>
         <span>→</span>
-        <span class="newSize counter-glow text-[var(--cyan)] font-600"></span>
+        <span class="newSize counter-glow text-[var(--cyan)] font-semibold"></span>
         <span class="savedPct bg-[var(--cyan)]/10 text-[var(--cyan)] text-[11px] px-2 py-0.5 rounded-full"></span>
       </div>
-      <button class="downloadBtn mt-3 w-full font-display font-600 text-sm bg-[var(--amber)] text-[#12141A] py-2.5 rounded-md hover:brightness-110 transition">Tải ảnh xuống</button>
+      <button class="downloadBtn mt-3 w-full font-display font-semibold text-sm bg-[var(--amber)] text-[#12141A] py-2.5 rounded-md hover:brightness-110 transition">Tải ảnh xuống</button>
     </div>
   </div>
 </template>
@@ -419,14 +420,14 @@
       </div>
     </div>
     <div class="p-3">
-      <p class="fileName text-xs truncate font-600 mb-1.5"></p>
+      <p class="fileName text-xs truncate font-semibold mb-1.5"></p>
       <div class="flex items-center gap-1.5 font-mono text-[11px] flex-wrap mb-2.5">
         <span class="origSize text-[var(--muted)] line-through"></span>
         <span>→</span>
-        <span class="newSize text-[var(--cyan)] font-600"></span>
+        <span class="newSize text-[var(--cyan)] font-semibold"></span>
         <span class="savedPct bg-[var(--cyan)]/10 text-[var(--cyan)] px-1.5 py-0.5 rounded-full"></span>
       </div>
-      <button class="downloadBtn w-full font-display font-600 text-xs bg-[var(--amber)] text-[#12141A] py-2.5 rounded-md">Tải ảnh xuống</button>
+      <button class="downloadBtn w-full font-display font-semibold text-xs bg-[var(--amber)] text-[#12141A] py-2.5 rounded-md">Tải ảnh xuống</button>
     </div>
   </div>
 </template>
@@ -769,10 +770,5 @@ mobileDownloadAllBtn.addEventListener('click', downloadAllZip);
 renderQueue();
 </script>
 
-<!-- ============================================================
-     ✅ (TÙY CHỌN) Mã xác minh Google AdSense toàn site.
-     Dán thẻ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"></script>
-     vào ngay trước thẻ đóng </head> ở đầu file.
-============================================================ -->
 </body>
 </html>
