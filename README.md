@@ -1,2 +1,3 @@
-# SnapLite
+# CodySnap
+
 
