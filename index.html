@@ -2,772 +2,415 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#12141A">
 
-<title>Nén Ảnh Online Miễn Phí | SnapLite - Nén, Resize, Xoay & Chuyển Đổi Ảnh JPG PNG WEBP</title>
-<meta name="description" content="Nén ảnh online miễn phí, resize, xoay ảnh và chuyển đổi định dạng ngay trên trình duyệt - không upload lên server, không giới hạn dung lượng, bảo mật tuyệt đối, xử lý tức thì.">
-<meta name="keywords" content="nén ảnh online, giảm dung lượng ảnh, resize ảnh online, xoay ảnh online, chuyển đổi định dạng ảnh, convert png sang jpg, compress image online">
-<meta name="author" content="SnapLite">
-<link rel="canonical" href="https://nenanh-pro.vercel.app/">
+<title data-i18n="docTitle">SnapLite - Tải Video TikTok Không Watermark Online Miễn Phí</title>
+<meta name="description" content="Công cụ tải video TikTok, hình ảnh không dán logo/watermark miễn phí, tốc độ cao, hỗ trợ đa ngôn ngữ.">
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="SnapLite - Nén, Resize & Chuyển Đổi Ảnh Online Miễn Phí">
-<meta property="og:description" content="Kéo thả ảnh vào, chọn mức nén, resize, xoay, so sánh trực quan trước/sau rồi tải xuống ngay. Toàn bộ xử lý diễn ra trên trình duyệt của bạn.">
-<meta property="og:image" content="https://nenanh-pro.vercel.app/og-cover.jpg">
-<meta property="og:url" content="https://nenanh-pro.vercel.app/">
-<meta property="og:locale" content="vi_VN">
-<meta property="og:site_name" content="SnapLite">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SnapLite - Nén, Resize & Chuyển Đổi Ảnh Online Miễn Phí">
-<meta name="twitter:description" content="Nén, resize, xoay và đổi định dạng ảnh ngay trên trình duyệt. Không upload, không giới hạn, không watermark.">
-<meta name="twitter:image" content="https://nenanh-pro.vercel.app/og-cover.jpg">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "SnapLite",
-  "url": "https://nenanh-pro.vercel.app/",
-  "applicationCategory": "MultimediaApplication",
-  "operatingSystem": "Any (chạy trên trình duyệt)",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "VND" },
-  "description": "Công cụ nén, resize, xoay và chuyển đổi định dạng ảnh trực tuyến, xử lý hoàn toàn trên trình duyệt.",
-  "featureList": "Nén ảnh JPG/PNG/WEBP, resize ảnh, xoay ảnh, chuyển đổi định dạng, so sánh trực quan trước/sau"
-}
-</script>
-
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%2312141A%22/><rect x=%2216%22 y=%2216%22 width=%2268%22 height=%2268%22 rx=%2216%22 fill=%22none%22 stroke=%22%23F2A65A%22 stroke-width=%228%22/><path d=%22M40 40L24 24M40 40H27M40 40V27%22 stroke=%22%235EEAD4%22 stroke-width=%228%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/><path d=%22M60 60L76 76M60 60H73M60 60V73%22 stroke=%22%235EEAD4%22 stroke-width=%228%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>">
-
-<!-- Sử dụng CDN Tailwind CSS v3 siêu ổn định trên cả Điện thoại & PC -->
+<!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
-  :root{
-    --bg-void:#12141A; --panel:#1B1E27; --panel-2:#20232D; --paper:#F5F3ED;
-    --amber:#F2A65A; --cyan:#5EEAD4; --ink:#ECE9E1; --muted:#8B8F9B;
+  :root {
+    --bg-void: #12141A; --panel: #1B1E27; --panel-2: #20232D;
+    --amber: #F2A65A; --cyan: #5EEAD4; --ink: #ECE9E1; --muted: #8B8F9B;
   }
-  html{scroll-behavior:smooth;}
-  body{background:var(--bg-void); color:var(--ink); font-family:'Inter',sans-serif; overflow-x:hidden;}
-  .font-display{font-family:'Space Grotesk',sans-serif;}
-  .font-mono{font-family:'IBM Plex Mono',monospace;}
-
-  .sprocket-frame{ border: 1.5px dashed rgba(242,166,90,0.35); position: relative; }
-  .sprocket-frame::before, .sprocket-frame::after{
-    content:""; position:absolute; left:0; right:0; height:10px;
-    background-image: radial-gradient(circle, rgba(242,166,90,0.5) 2px, transparent 2.2px);
-    background-size: 16px 10px; background-repeat: repeat-x;
-  }
-  .sprocket-frame::before{ top:-11px; }
-  .sprocket-frame::after{ bottom:-11px; }
-
-  .dropzone-active{ border-color: var(--cyan) !important; background: rgba(94,234,212,0.06) !important; }
-
-  input[type=range]{ -webkit-appearance:none; height:4px; border-radius:999px; background:#333844; }
-  input[type=range]::-webkit-slider-thumb{
-    -webkit-appearance:none; width:20px; height:20px; border-radius:50%;
-    background: var(--amber); border:3px solid var(--bg-void); cursor:pointer; margin-top:-8px;
-    box-shadow:0 0 0 1px rgba(242,166,90,0.4);
-  }
-  input[type=range]::-moz-range-thumb{
-    width:20px; height:20px; border-radius:50%; background:var(--amber); border:3px solid var(--bg-void); cursor:pointer;
-  }
-
-  .counter-glow{ text-shadow: 0 0 18px rgba(94,234,212,0.35); }
-  .fade-in{ animation: fadeIn .35s ease both; }
-  @keyframes fadeIn{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
-  ::selection{ background: var(--amber); color:#12141A; }
-
-  .ad-slot{ border: 1px dashed #3A3F4B; background: repeating-linear-gradient(135deg, #191C24, #191C24 10px, #1D2029 10px, #1D2029 20px); }
-
-  /* ==== Desktop: so sánh trượt trước/sau ==== */
-  .compare{ position:relative; height:190px; overflow:hidden; touch-action:none; background:#0d0e12; }
-  .compare img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-  .compare .beforeImg{ clip-path: inset(0 50% 0 0); }
-  .compare .handle-line{ position:absolute; top:0; bottom:0; left:50%; width:2px; background:var(--cyan); pointer-events:none; box-shadow:0 0 8px rgba(94,234,212,.6); }
-  .compare .handle-dot{ position:absolute; top:50%; left:50%; width:30px; height:30px; margin:-15px 0 0 -15px; border-radius:50%; background:var(--cyan); pointer-events:none; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,.4); }
-  .compare-slider{ position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:ew-resize; z-index:5; }
-  .compare-slider::-webkit-slider-thumb{ -webkit-appearance:none; width:100%; height:100%; }
-
-  .rotate-btn, .remove-btn{
-    width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center;
-    background:rgba(18,20,26,0.65); backdrop-filter:blur(2px); border:1px solid rgba(255,255,255,.12);
-  }
-
-  /* ==== Mobile: thẻ ảnh gọn, có nút bấm chuyển trước/sau ==== */
-  .m-thumb{ position:relative; height:160px; overflow:hidden; background:#0d0e12; }
-  .m-thumb img{ width:100%; height:100%; object-fit:cover; }
-
-  /* ==== Thanh hành động cố định + bottom sheet trên mobile ==== */
-  #mobileBar{ padding-bottom: calc(0.75rem + env(safe-area-inset-bottom)); }
-  #mobileUI.has-queue{ padding-bottom: 84px; }
-
-  #mobileSheet{ transform: translateY(100%); transition: transform .3s ease; padding-bottom: calc(1.25rem + env(safe-area-inset-bottom)); }
-  #mobileSheet.open{ transform: translateY(0); }
-  #mobileSheetBackdrop.open{ display:block; }
-
-  @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } }
+  body { background: var(--bg-void); color: var(--ink); font-family: 'Inter', sans-serif; min-height: 100vh; }
+  .font-display { font-family: 'Space Grotesk', sans-serif; }
+  .font-mono { font-family: 'IBM Plex Mono', monospace; }
+  .ad-slot { border: 1px dashed #3A3F4B; background: repeating-linear-gradient(135deg, #191C24, #191C24 10px, #1D2029 10px, #1D2029 20px); }
+  .fade-in { animation: fadeIn .3s ease-out both; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
 
-<body class="min-h-screen">
+<body class="flex flex-col min-h-screen">
 
-<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-[var(--amber)] focus:text-[#12141A] focus:px-3 focus:py-2 focus:rounded z-50">Bỏ qua tới nội dung chính</a>
-
-<input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp" multiple class="hidden">
-
-<!-- ================================================================
-     GIAO DIỆN DÀNH CHO PC / MÀN HÌNH RỘNG (≥640px)
-================================================================= -->
-<div id="desktopUI" class="hidden sm:block">
+  <!-- HEADER -->
   <header class="border-b border-white/5 sticky top-0 z-40 bg-[var(--bg-void)]/90 backdrop-blur">
-    <div class="max-w-6xl mx-auto px-6 py-3.5 flex items-center justify-between">
-      <div class="flex items-center gap-2.5">
-        <span class="w-8 h-8 rounded-lg border-2 border-[var(--amber)] flex items-center justify-center shrink-0">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 9L3 3M9 9H4M9 9V4"/><path d="M15 15L21 21M15 15H20M15 15V20"/>
-          </svg>
-        </span>
-        <span class="font-display font-bold text-lg tracking-tight">Snap<span class="text-[var(--amber)]">Lite</span></span>
+    <div class="max-w-5xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <!-- LOGO -->
+      <div class="flex items-center gap-3">
+        <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0">
+          <rect width="100" height="100" rx="22" fill="#1B1E27"/>
+          <rect x="18" y="18" width="64" height="64" rx="16" fill="none" stroke="#F2A65A" stroke-width="7"/>
+          <path d="M42 42L26 26M42 42H29M42 42V29" stroke="#5EEAD4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M58 58L74 74M58 58H71M58 58V71" stroke="#5EEAD4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="font-display font-bold text-xl tracking-tight text-white">Snap<span class="text-[var(--amber)]">Down</span></span>
       </div>
-      <p class="text-xs font-mono text-[var(--muted)]">Miễn phí · Không giới hạn · Không watermark</p>
-    </div>
-    <div class="max-w-6xl mx-auto px-6 pb-3">
-      <div class="ad-slot rounded-md h-[90px] flex items-center justify-center text-[11px] font-mono text-[var(--muted)]">
-        <!-- ADSENSE_HEADER_SLOT_DESKTOP: dán <ins class="adsbygoogle">...</ins> tại đây -->
-        Vị trí quảng cáo · Header Banner (728×90)
+
+      <!-- LANGUAGE SELECTOR -->
+      <div class="flex items-center gap-2">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        <select id="langSelect" class="bg-[var(--panel)] border border-white/10 rounded-lg px-2.5 py-1.5 text-xs font-mono text-white focus:outline-none focus:border-[var(--amber)] cursor-pointer">
+          <option value="vi">🇻🇳 Tiếng Việt</option>
+          <option value="en">🇺🇸 English</option>
+          <option value="zh">🇨🇳 中文</option>
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="th">🇹🇭 ไทย</option>
+        </select>
       </div>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-6">
-    <section class="pt-14 pb-6 text-center">
-      <h1 class="font-display font-bold text-5xl leading-tight">
-        Nén, resize &amp; chuyển đổi ảnh<br> <span class="text-[var(--amber)]">ngay trên trình duyệt</span>
+  <!-- BANNER QUẢNG CÁO HEADER -->
+  <div class="max-w-5xl mx-auto px-4 pt-4 w-full">
+    <div class="ad-slot rounded-lg h-[70px] flex items-center justify-center text-xs font-mono text-[var(--muted)]">
+      [ Quảng Cáo / Header Banner Ad ]
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-1 max-w-4xl mx-auto px-4 py-8 w-full">
+    
+    <!-- TITLE SECTION -->
+    <section class="text-center mb-8">
+      <h1 data-i18n="heroTitle" class="font-display font-bold text-3xl sm:text-5xl text-white leading-tight">
+        Tải Video & Ảnh TikTok <br><span class="text-[var(--amber)]">Không Dán Logo / Watermark</span>
       </h1>
-      <p class="mt-4 text-[var(--muted)] max-w-xl mx-auto text-base">
-        Kéo-thả, dán (Ctrl+V) hoặc chọn ảnh JPG, PNG, WEBP. Ảnh không bao giờ rời khỏi máy của bạn.
+      <p data-i18n="heroSub" class="text-[var(--muted)] text-sm sm:text-base mt-3 max-w-xl mx-auto">
+        Chỉ cần dán đường dẫn video hoặc bài viết ảnh vào bên dưới. Xử lý tức thì, hoàn toàn miễn phí!
       </p>
-      <div class="mt-4 flex gap-2 justify-center flex-wrap">
-        <span class="text-[11px] font-mono bg-[var(--panel)] border border-white/10 text-[var(--cyan)] px-3 py-1 rounded-full">Nén ảnh</span>
-        <span class="text-[11px] font-mono bg-[var(--panel)] border border-white/10 text-[var(--cyan)] px-3 py-1 rounded-full">Đổi định dạng</span>
-        <span class="text-[11px] font-mono bg-[var(--panel)] border border-white/10 text-[var(--cyan)] px-3 py-1 rounded-full">Resize kích thước</span>
-        <span class="text-[11px] font-mono bg-[var(--panel)] border border-white/10 text-[var(--cyan)] px-3 py-1 rounded-full">Xoay ảnh</span>
-        <span class="text-[11px] font-mono bg-[var(--panel)] border border-white/10 text-[var(--cyan)] px-3 py-1 rounded-full">So sánh trước/sau</span>
-      </div>
     </section>
 
-    <section class="pb-10">
-      <div id="dropzoneD" class="sprocket-frame my-6 rounded-xl border-2 border-dashed border-[var(--amber)]/40 bg-[var(--panel)] px-6 py-20 text-center cursor-pointer transition-colors">
-        <div class="mx-auto w-14 h-14 rounded-full bg-[var(--panel-2)] flex items-center justify-center mb-4">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
+    <!-- INPUT BOX -->
+    <section class="bg-[var(--panel)] border border-white/10 rounded-2xl p-3 sm:p-4 shadow-2xl">
+      <form id="downloadForm" class="flex flex-col sm:flex-row gap-3">
+        <div class="relative flex-1">
+          <input type="url" id="videoUrl" required
+            placeholder="Dán link TikTok vào đây (vd: https://vt.tiktok.com/...)"
+            data-i18n-ph="inputPlaceholder"
+            class="w-full bg-[var(--panel-2)] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-[var(--muted)] focus:outline-none focus:border-[var(--cyan)] transition"
+          >
+          <button type="button" id="pasteBtn" class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-mono bg-white/5 hover:bg-white/10 text-[var(--amber)] px-2.5 py-1 rounded-md transition">
+            Paste
+          </button>
         </div>
-        <p class="font-display font-semibold text-lg">Kéo thả ảnh vào đây, hoặc <span class="text-[var(--amber)] underline">chọn từ máy</span></p>
-        <p class="mt-2 text-xs font-mono text-[var(--muted)]">Hỗ trợ .PNG · .JPG · .WEBP · dán Ctrl+V</p>
+        <button type="submit" id="submitBtn" class="font-display font-semibold bg-[var(--amber)] hover:brightness-110 active:scale-[0.98] text-[#12141A] px-6 py-3.5 rounded-xl transition flex items-center justify-center gap-2">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          <span data-i18n="btnDownload">Tải Xuống</span>
+        </button>
+      </form>
+    </section>
+
+    <!-- LOADING & RESULT SECTION -->
+    <section id="resultContainer" class="mt-8 hidden fade-in">
+      
+      <!-- LOADING SPINNER -->
+      <div id="loadingState" class="text-center py-10 hidden">
+        <div class="inline-block w-10 h-10 border-4 border-[var(--amber)] border-t-transparent rounded-full animate-spin mb-3"></div>
+        <p data-i18n="msgProcessing" class="text-sm font-mono text-[var(--muted)]">Đang xử lý và xóa watermark...</p>
       </div>
 
-      <div class="rounded-xl bg-[var(--panel)] border border-white/5 p-6 grid grid-cols-3 gap-5 items-end">
-        <div>
-          <div class="flex justify-between items-baseline mb-2">
-            <label for="quality" class="text-sm font-semibold">Mức độ nén</label>
-            <span id="qualityVal" class="font-mono text-[var(--cyan)] text-sm">80%</span>
+      <!-- RESULT CARD -->
+      <div id="resultCard" class="bg-[var(--panel)] border border-white/10 rounded-2xl p-5 hidden">
+        <div class="flex flex-col md:flex-row gap-6">
+          
+          <!-- PREVIEW MEDIA -->
+          <div class="w-full md:w-56 shrink-0 rounded-xl overflow-hidden bg-black/40 border border-white/5 flex items-center justify-center min-h-[200px]">
+            <img id="resCover" class="w-full h-auto max-h-72 object-cover hidden" alt="Preview">
+            <video id="resVideo" controls class="w-full h-auto max-h-72 hidden"></video>
           </div>
-          <input id="quality" type="range" min="1" max="100" value="80" class="w-full">
-          <div class="flex justify-between text-[10px] font-mono text-[var(--muted)] mt-1"><span>Nén mạnh</span><span>Giữ chất lượng</span></div>
+
+          <!-- DETAILS & ACTIONS -->
+          <div class="flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span id="resAuthor" class="text-xs font-mono bg-[var(--cyan)]/10 text-[var(--cyan)] px-2 py-0.5 rounded-full">@author</span>
+              </div>
+              <p id="resTitle" class="text-sm font-medium text-white line-clamp-3 mb-4"></p>
+            </div>
+
+            <!-- BUTTON LIST -->
+            <div id="actionButtons" class="space-y-2.5 pt-4 border-t border-white/5">
+              <!-- Render bằng JS tùy theo bài đăng là Video hay Ảnh -->
+            </div>
+          </div>
         </div>
-        <div>
-          <label for="format" class="text-sm font-semibold block mb-2">Định dạng đầu ra</label>
-          <select id="format" class="w-full bg-[var(--panel-2)] border border-white/10 rounded-md px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--amber)]">
-            <option value="auto">Giữ nguyên định dạng gốc</option>
-            <option value="image/jpeg">Chuyển sang JPG</option>
-            <option value="image/webp">Chuyển sang WEBP</option>
-            <option value="image/png">Chuyển sang PNG</option>
-          </select>
-        </div>
-        <div>
-          <label for="resize" class="text-sm font-semibold block mb-2">Kích thước</label>
-          <select id="resize" class="w-full bg-[var(--panel-2)] border border-white/10 rounded-md px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--amber)]">
-            <option value="0">Giữ nguyên kích thước</option>
-            <option value="1920">Tối đa 1920px (Full HD)</option>
-            <option value="1280">Tối đa 1280px (HD)</option>
-            <option value="800">Tối đa 800px (Web nhỏ)</option>
-          </select>
+
+        <!-- SLIDER IMAGES (Nếu là bài viết dạng album ảnh) -->
+        <div id="imageGallery" class="mt-6 pt-6 border-t border-white/5 hidden">
+          <h3 data-i18n="albumTitle" class="text-sm font-semibold text-white mb-3">Bộ ảnh không watermark:</h3>
+          <div id="imageList" class="grid grid-cols-2 sm:grid-cols-3 gap-3"></div>
         </div>
       </div>
-
-      <div class="flex gap-3 mt-5">
-        <button id="compressBtn" class="font-display font-semibold bg-[var(--amber)] text-[#12141A] px-5 py-3 rounded-md hover:brightness-110 active:scale-[0.98] transition disabled:opacity-40 disabled:pointer-events-none">Nén ảnh ngay</button>
-        <button id="downloadAllBtn" class="font-display font-semibold border border-[var(--cyan)]/50 text-[var(--cyan)] px-5 py-3 rounded-md hover:bg-[var(--cyan)]/10 transition hidden">Tải tất cả (.zip)</button>
-        <button id="clearAllBtnD" class="font-display font-semibold border border-white/10 text-[var(--muted)] px-5 py-3 rounded-md hover:bg-white/5 transition hidden ml-auto">Xóa tất cả</button>
-      </div>
-
-      <div id="statsBarD" class="hidden fade-in mt-4 rounded-lg bg-[var(--panel-2)] border border-[var(--cyan)]/20 px-4 py-3 text-sm font-mono flex flex-wrap gap-x-6 gap-y-1 items-center">
-        <span><span id="statCountD" class="text-[var(--ink)] font-semibold">0</span> ảnh đã nén</span>
-        <span class="text-[var(--muted)] line-through" id="statOrigD">0 KB</span>
-        <span>→</span>
-        <span class="text-[var(--cyan)] font-semibold" id="statNewD">0 KB</span>
-        <span class="bg-[var(--cyan)]/10 text-[var(--cyan)] px-2 py-0.5 rounded-full" id="statPctD">-0%</span>
-      </div>
-
-      <div id="emptyStateD" class="text-center text-[var(--muted)] text-sm font-mono py-10">Chưa có ảnh nào được chọn.</div>
-      <div id="resultsDesktop" class="grid grid-cols-2 gap-5 mt-6"></div>
     </section>
+
+    <!-- HƯỚNG DẪN SỬ DỤNG -->
+    <section class="mt-16 border-t border-white/5 pt-10">
+      <h2 data-i18n="howToTitle" class="font-display font-bold text-xl text-white mb-6 text-center">Cách lấy link video TikTok</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="bg-[var(--panel)] p-4 rounded-xl border border-white/5 text-center">
+          <div class="w-8 h-8 rounded-full bg-[var(--amber)]/10 text-[var(--amber)] font-bold flex items-center justify-center mx-auto mb-3">1</div>
+          <p data-i18n="step1" class="text-xs text-[var(--muted)]">Mở ứng dụng TikTok và tìm video hoặc bài viết ảnh bạn muốn tải.</p>
+        </div>
+        <div class="bg-[var(--panel)] p-4 rounded-xl border border-white/5 text-center">
+          <div class="w-8 h-8 rounded-full bg-[var(--amber)]/10 text-[var(--amber)] font-bold flex items-center justify-center mx-auto mb-3">2</div>
+          <p data-i18n="step2" class="text-xs text-[var(--muted)]">Nhấn nút "Chia sẻ" (Share) và chọn "Sao chép liên kết" (Copy Link).</p>
+        </div>
+        <div class="bg-[var(--panel)] p-4 rounded-xl border border-white/5 text-center">
+          <div class="w-8 h-8 rounded-full bg-[var(--amber)]/10 text-[var(--amber)] font-bold flex items-center justify-center mx-auto mb-3">3</div>
+          <p data-i18n="step3" class="text-xs text-[var(--muted)]">Dán link vào ô trên và bấm "Tải Xuống" để xóa logo tức thì.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
-</div>
 
-<!-- ================================================================
-     GIAO DIỆN DÀNH CHO ĐIỆN THOẠI (<640px)
-================================================================= -->
-<div id="mobileUI" class="sm:hidden">
-  <div class="sticky top-0 z-40 bg-[var(--bg-void)]/95 backdrop-blur border-b border-white/5 px-4 py-3 flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <span class="w-7 h-7 rounded-lg border-2 border-[var(--amber)] flex items-center justify-center shrink-0">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 9L3 3M9 9H4M9 9V4"/><path d="M15 15L21 21M15 15H20M15 15V20"/>
-        </svg>
-      </span>
-      <span class="font-display font-bold text-base">Snap<span class="text-[var(--amber)]">Lite</span></span>
-    </div>
-    <button id="mobileSettingsBtn" class="w-9 h-9 rounded-lg bg-[var(--panel)] border border-white/10 flex items-center justify-center">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-    </button>
-  </div>
-
-  <div class="px-4 pt-3">
-    <div class="ad-slot rounded-md h-[60px] flex items-center justify-center text-[10px] font-mono text-[var(--muted)]">
-      <!-- ADSENSE_HEADER_SLOT_MOBILE: dán <ins class="adsbygoogle">...</ins> tại đây -->
-      Quảng cáo (320×50)
+  <!-- BANNER QUẢNG CÁO FOOTER -->
+  <div class="max-w-5xl mx-auto px-4 pb-4 w-full">
+    <div class="ad-slot rounded-lg h-[90px] flex items-center justify-center text-xs font-mono text-[var(--muted)]">
+      [ Quảng Cáo / Bottom Banner Ad ]
     </div>
   </div>
 
-  <div class="px-4 pt-6 pb-2 text-center">
-    <h1 class="font-display font-bold text-2xl leading-snug">Nén ảnh nhanh<br><span class="text-[var(--amber)]">ngay trên điện thoại</span></h1>
-    <p class="mt-2 text-[var(--muted)] text-xs">Chọn ảnh, chỉnh mức nén, tải xuống — không cần cài app.</p>
-  </div>
-
-  <div class="px-4 mt-3">
-    <button id="dropzoneM" class="w-full rounded-xl border-2 border-dashed border-[var(--amber)]/40 bg-[var(--panel)] py-7 flex flex-col items-center gap-2 active:scale-[0.98] transition">
-      <span class="w-11 h-11 rounded-full bg-[var(--panel-2)] flex items-center justify-center">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
-      </span>
-      <span class="font-display font-semibold text-sm">Thêm ảnh từ máy</span>
-      <span class="text-[10px] font-mono text-[var(--muted)]">.PNG · .JPG · .WEBP</span>
-    </button>
-  </div>
-
-  <div class="px-4 mt-4 flex items-center justify-between gap-2">
-    <div id="statsBarM" class="hidden fade-in flex-1 rounded-lg bg-[var(--panel-2)] border border-[var(--cyan)]/20 px-3 py-2 text-[11px] font-mono flex flex-wrap gap-x-3 gap-y-0.5 items-center">
-      <span><span id="statCountM" class="text-[var(--ink)] font-semibold">0</span> ảnh</span>
-      <span class="text-[var(--muted)] line-through" id="statOrigM">0KB</span>→<span class="text-[var(--cyan)] font-semibold" id="statNewM">0KB</span>
-      <span class="bg-[var(--cyan)]/10 text-[var(--cyan)] px-1.5 py-0.5 rounded-full" id="statPctM">-0%</span>
-    </div>
-    <button id="clearAllBtnM" class="hidden shrink-0 text-[11px] font-mono text-[var(--muted)] border border-white/10 rounded-lg px-3 py-2">Xóa tất cả</button>
-  </div>
-
-  <div id="emptyStateM" class="text-center text-[var(--muted)] text-sm font-mono py-10">Chưa có ảnh nào được chọn.</div>
-  <div id="resultsMobile" class="px-4 mt-2 space-y-3"></div>
-
-  <div class="px-4 py-6">
-    <div class="ad-slot rounded-md h-[100px] flex items-center justify-center text-[10px] font-mono text-[var(--muted)]">
-      <!-- ADSENSE_INCONTENT_SLOT_MOBILE: dán <ins class="adsbygoogle">...</ins> tại đây -->
-      Quảng cáo (300×100)
-    </div>
-  </div>
-</div>
-
-<!-- ================================================================
-     NỘI DUNG SEO — DÙNG CHUNG CHO CẢ 2 GIAO DIỆN
-================================================================= -->
-<main id="main" class="max-w-6xl mx-auto px-4 sm:px-6">
-  <section class="pb-10 sm:border-t border-white/5 sm:pt-10">
-    <div class="grid md:grid-cols-[1fr_260px] gap-8">
-      <div>
-        <h2 class="font-display font-bold text-xl sm:text-2xl mb-4">Vì sao nên nén ảnh trước khi đăng tải?</h2>
-        <p class="text-sm text-[var(--muted)] leading-relaxed mb-4">
-          Ảnh dung lượng lớn làm chậm tốc độ tải trang, tốn băng thông và ảnh hưởng trực tiếp đến thứ hạng SEO trên Google. SnapLite giúp bạn giảm dung lượng ảnh xuống tới 90%, resize theo kích thước mong muốn và xoay ảnh đúng chiều — tất cả trong một công cụ duy nhất, không cần cài đặt phần mềm.
-        </p>
-        <h2 class="font-display font-bold text-lg sm:text-xl mb-3 mt-8">Câu hỏi thường gặp</h2>
-        <div class="space-y-3">
-          <details class="bg-[var(--panel)] rounded-md p-4">
-            <summary class="cursor-pointer font-semibold text-sm">Ảnh của tôi có được gửi lên server không?</summary>
-            <p class="text-xs text-[var(--muted)] mt-2">Không. Toàn bộ quá trình nén, resize, xoay và chuyển đổi diễn ra ngay trên trình duyệt của bạn bằng JavaScript (Canvas API). Ảnh không bao giờ rời khỏi thiết bị của bạn.</p>
-          </details>
-          <details class="bg-[var(--panel)] rounded-md p-4">
-            <summary class="cursor-pointer font-semibold text-sm">Giao diện trên điện thoại có khác trên máy tính không?</summary>
-            <p class="text-xs text-[var(--muted)] mt-2">Có. SnapLite dùng 2 bộ giao diện riêng biệt: trên máy tính có thanh trượt so sánh trực tiếp trên ảnh, còn trên điện thoại tối ưu thành danh sách gọn, cài đặt nằm trong bảng trượt lên từ dưới để dễ thao tác bằng ngón tay.</p>
-          </details>
-          <details class="bg-[var(--panel)] rounded-md p-4">
-            <summary class="cursor-pointer font-semibold text-sm">Định dạng nào giúp giảm dung lượng nhiều nhất?</summary>
-            <p class="text-xs text-[var(--muted)] mt-2">WEBP thường cho dung lượng nhỏ nhất với chất lượng tương đương JPG, và có hỗ trợ trong suốt (transparency) như PNG.</p>
-          </details>
-        </div>
-      </div>
-      <aside class="hidden md:block">
-        <div class="ad-slot rounded-md h-[600px] sticky top-24 flex items-center justify-center text-[11px] font-mono text-[var(--muted)]">
-          <!-- ADSENSE_SIDEBAR_SLOT: dán <ins class="adsbygoogle">...</ins> tại đây -->
-          Quảng cáo<br>Sidebar (160×600)
-        </div>
-      </aside>
-    </div>
-  </section>
-</main>
-
-<footer class="border-t border-white/5 py-8 text-center text-xs font-mono text-[var(--muted)] pb-24 sm:pb-8">
-  © <span id="year"></span> SnapLite · Nén ảnh miễn phí, riêng tư, không giới hạn.
-</footer>
-
-<!-- ================= Thanh hành động cố định (mobile) ================= -->
-<div id="mobileBar" class="sm:hidden fixed bottom-0 inset-x-0 z-50 bg-[var(--panel)]/95 backdrop-blur border-t border-white/10 p-3 hidden">
-  <div class="flex gap-2">
-    <button id="mobileCompressBtn" class="flex-1 font-display font-semibold bg-[var(--amber)] text-[#12141A] py-3 rounded-md active:scale-[0.98] transition">Nén ảnh</button>
-    <button id="mobileDownloadAllBtn" class="flex-1 font-display font-semibold border border-[var(--cyan)]/50 text-[var(--cyan)] py-3 rounded-md hidden">Tải tất cả</button>
-  </div>
-</div>
-
-<!-- ================= Bottom sheet cài đặt (mobile) ================= -->
-<div id="mobileSheetBackdrop" class="sm:hidden fixed inset-0 bg-black/50 z-[60] hidden"></div>
-<div id="mobileSheet" class="sm:hidden fixed inset-x-0 bottom-0 z-[70] bg-[var(--panel)] rounded-t-2xl border-t border-white/10 p-5">
-  <div class="w-10 h-1 rounded-full bg-white/15 mx-auto mb-4"></div>
-  <div class="flex items-center justify-between mb-4">
-    <h3 class="font-display font-bold text-base">Tùy chỉnh nén</h3>
-    <button id="mobileSheetClose" class="w-8 h-8 rounded-lg bg-[var(--panel-2)] flex items-center justify-center">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-  </div>
-  <div class="space-y-5">
-    <div>
-      <div class="flex justify-between items-baseline mb-2">
-        <label for="quality-m" class="text-sm font-semibold">Mức độ nén</label>
-        <span id="qualityVal-m" class="font-mono text-[var(--cyan)] text-sm">80%</span>
-      </div>
-      <input id="quality-m" type="range" min="1" max="100" value="80" class="w-full">
-      <div class="flex justify-between text-[10px] font-mono text-[var(--muted)] mt-1"><span>Nén mạnh</span><span>Giữ chất lượng</span></div>
-    </div>
-    <div>
-      <label for="format-m" class="text-sm font-semibold block mb-2">Định dạng đầu ra</label>
-      <select id="format-m" class="w-full bg-[var(--panel-2)] border border-white/10 rounded-md px-3 py-3 text-sm">
-        <option value="auto">Giữ nguyên định dạng gốc</option>
-        <option value="image/jpeg">Chuyển sang JPG</option>
-        <option value="image/webp">Chuyển sang WEBP</option>
-        <option value="image/png">Chuyển sang PNG</option>
-      </select>
-    </div>
-    <div>
-      <label for="resize-m" class="text-sm font-semibold block mb-2">Kích thước</label>
-      <select id="resize-m" class="w-full bg-[var(--panel-2)] border border-white/10 rounded-md px-3 py-3 text-sm">
-        <option value="0">Giữ nguyên kích thước</option>
-        <option value="1920">Tối đa 1920px (Full HD)</option>
-        <option value="1280">Tối đa 1280px (HD)</option>
-        <option value="800">Tối đa 800px (Web nhỏ)</option>
-      </select>
-    </div>
-    <button id="mobileSheetDone" class="w-full font-display font-semibold bg-[var(--amber)] text-[#12141A] py-3 rounded-md">Xong</button>
-  </div>
-</div>
-
-<!-- ================= Template thẻ ảnh — DESKTOP ================= -->
-<template id="cardTemplateDesktop">
-  <div class="fade-in rounded-xl bg-[var(--panel)] border border-white/5 overflow-hidden">
-    <div class="compare">
-      <img class="afterImg" alt="Ảnh sau khi nén">
-      <img class="beforeImg" alt="Ảnh gốc">
-      <div class="handle-line"></div>
-      <div class="handle-dot">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#12141A" stroke-width="3"><path d="M8 8L4 12L8 16M16 8L20 12L16 16"/></svg>
-      </div>
-      <input type="range" class="compare-slider" min="0" max="100" value="50" aria-label="Kéo để so sánh ảnh trước và sau">
-      <span class="absolute top-2 left-2 text-[10px] font-mono bg-black/60 px-1.5 py-0.5 rounded pointer-events-none">Trước</span>
-      <span class="absolute top-2 right-2 text-[10px] font-mono bg-black/60 px-1.5 py-0.5 rounded text-[var(--cyan)] pointer-events-none">Sau</span>
-      <div class="absolute bottom-2 right-2 flex gap-1.5 z-10">
-        <button class="rotateBtn rotate-btn" title="Xoay ảnh 90°">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2"><path d="M21 12a9 9 0 11-3-6.7"/><path d="M21 3v6h-6"/></svg>
-        </button>
-        <button class="removeBtn remove-btn" title="Xóa ảnh này">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-      </div>
-    </div>
-    <div class="p-4">
-      <p class="fileName text-xs truncate font-semibold mb-2"></p>
-      <div class="flex items-center justify-between font-mono text-sm flex-wrap gap-1">
-        <span class="origSize text-[var(--muted)] line-through"></span>
-        <span>→</span>
-        <span class="newSize counter-glow text-[var(--cyan)] font-semibold"></span>
-        <span class="savedPct bg-[var(--cyan)]/10 text-[var(--cyan)] text-[11px] px-2 py-0.5 rounded-full"></span>
-      </div>
-      <button class="downloadBtn mt-3 w-full font-display font-semibold text-sm bg-[var(--amber)] text-[#12141A] py-2.5 rounded-md hover:brightness-110 transition">Tải ảnh xuống</button>
-    </div>
-  </div>
-</template>
-
-<!-- ================= Template thẻ ảnh — MOBILE (gọn, có nút chuyển trước/sau) ================= -->
-<template id="cardTemplateMobile">
-  <div class="fade-in rounded-xl bg-[var(--panel)] border border-white/5 overflow-hidden">
-    <div class="m-thumb">
-      <img class="previewImg" alt="Ảnh xem trước">
-      <button class="toggleBtn absolute top-2 left-2 text-[10px] font-mono bg-black/70 text-[var(--cyan)] px-2 py-1 rounded-md">Sau</button>
-      <div class="absolute bottom-2 right-2 flex gap-1.5 z-10">
-        <button class="rotateBtn rotate-btn" title="Xoay ảnh 90°">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2"><path d="M21 12a9 9 0 11-3-6.7"/><path d="M21 3v6h-6"/></svg>
-        </button>
-        <button class="removeBtn remove-btn" title="Xóa ảnh này">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-      </div>
-    </div>
-    <div class="p-3">
-      <p class="fileName text-xs truncate font-semibold mb-1.5"></p>
-      <div class="flex items-center gap-1.5 font-mono text-[11px] flex-wrap mb-2.5">
-        <span class="origSize text-[var(--muted)] line-through"></span>
-        <span>→</span>
-        <span class="newSize text-[var(--cyan)] font-semibold"></span>
-        <span class="savedPct bg-[var(--cyan)]/10 text-[var(--cyan)] px-1.5 py-0.5 rounded-full"></span>
-      </div>
-      <button class="downloadBtn w-full font-display font-semibold text-xs bg-[var(--amber)] text-[#12141A] py-2.5 rounded-md">Tải ảnh xuống</button>
-    </div>
-  </div>
-</template>
-
-<!-- JSZip — chỉ dùng để gộp nhiều ảnh vào 1 file .zip, không gửi dữ liệu đi đâu cả -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 py-6 text-center text-xs font-mono text-[var(--muted)]">
+    <p>© <span id="year"></span> SnapDown · Free TikTok Downloader without Watermark.</p>
+  </footer>
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-const fileInput  = document.getElementById('fileInput');
-const dropzoneD  = document.getElementById('dropzoneD');
-const dropzoneM  = document.getElementById('dropzoneM');
+// ==========================================
+// 1. HỆ THỐNG ĐA NGÔN NGỮ (I18N)
+// ==========================================
+const i18nData = {
+  vi: {
+    docTitle: "SnapDown - Tải Video TikTok Không Watermark Online Miễn Phí",
+    heroTitle: "Tải Video & Ảnh TikTok <br><span class=\"text-[var(--amber)]\">Không Dán Logo / Watermark</span>",
+    heroSub: "Chỉ cần dán đường dẫn video hoặc bài viết ảnh vào bên dưới. Xử lý tức thì, hoàn toàn miễn phí!",
+    inputPlaceholder: "Dán link TikTok vào đây (vd: https://vt.tiktok.com/...)",
+    btnDownload: "Tải Xuống",
+    msgProcessing: "Đang xử lý và xóa watermark...",
+    howToTitle: "Cách lấy link video TikTok",
+    step1: "Mở ứng dụng TikTok và tìm video hoặc bài viết ảnh bạn muốn tải.",
+    step2: "Nhấn nút 'Chia sẻ' (Share) và chọn 'Sao chép liên kết' (Copy Link).",
+    step3: "Dán link vào ô trên và bấm 'Tải Xuống' để xóa logo tức thì.",
+    albumTitle: "Bộ ảnh không watermark:",
+    btnDlNoWm: "Tải Video (Không Watermark)",
+    btnDlWm: "Tải Video (Có Logo gốc)",
+    btnDlAudio: "Tải Nhạc Nền (MP3)",
+    btnDlImg: "Tải Ảnh Này"
+  },
+  en: {
+    docTitle: "SnapDown - Free TikTok Downloader Without Watermark",
+    heroTitle: "Download TikTok Videos & Photos <br><span class=\"text-[var(--amber)]\">Without Watermark</span>",
+    heroSub: "Just paste the video or photo link below. Instant processing, 100% free!",
+    inputPlaceholder: "Paste TikTok link here (e.g. https://vt.tiktok.com/...)",
+    btnDownload: "Download",
+    msgProcessing: "Processing and removing watermark...",
+    howToTitle: "How to get TikTok video link",
+    step1: "Open TikTok app and find the video or photo post you want.",
+    step2: "Tap 'Share' button and select 'Copy Link'.",
+    step3: "Paste the link above and click 'Download' to remove watermark.",
+    albumTitle: "Watermark-free Photos:",
+    btnDlNoWm: "Download Video (No Watermark)",
+    btnDlWm: "Download Video (With Watermark)",
+    btnDlAudio: "Download Audio (MP3)",
+    btnDlImg: "Download Image"
+  },
+  zh: {
+    docTitle: "SnapDown - 免费TikTok无水印视频下载器",
+    heroTitle: "下载 TikTok 视频和图片 <br><span class=\"text-[var(--amber)]\">无水印 / 无 Logo</span>",
+    heroSub: "只需在下方粘贴视频或图片链接。即时处理，完全免费！",
+    inputPlaceholder: "在此处粘贴 TikTok 链接...",
+    btnDownload: "下载",
+    msgProcessing: "正在处理并去除水印...",
+    howToTitle: "如何获取 TikTok 视频链接",
+    step1: "打开 TikTok 应用并找到您要下载的视频或图片。",
+    step2: "点击“分享”按钮并选择“复制链接”。",
+    step3: "将链接粘贴到上方，点击“下载”即可去除水印。",
+    albumTitle: "无水印图片集：",
+    btnDlNoWm: "下载视频 (无水印)",
+    btnDlWm: "下载视频 (含水印)",
+    btnDlAudio: "下载背景音乐 (MP3)",
+    btnDlImg: "下载此图片"
+  },
+  de: {
+    docTitle: "SnapDown - TikTok Video Downloader Ohne Wasserzeichen",
+    heroTitle: "TikTok Videos & Fotos <br><span class=\"text-[var(--amber)]\">Ohne Wasserzeichen Herunterladen</span>",
+    heroSub: "Fügen Sie einfach den Link unten ein. Sofortige Verarbeitung, kostenlos!",
+    inputPlaceholder: "TikTok-Link hier einfügen...",
+    btnDownload: "Download",
+    msgProcessing: "Wird verarbeitet und Wasserzeichen entfernt...",
+    howToTitle: "So erhalten Sie den TikTok-Link",
+    step1: "Öffnen Sie die TikTok-App und suchen Sie das Video/Foto.",
+    step2: "Tippen Sie auf 'Teilen' und wählen Sie 'Link kopieren'.",
+    step3: "Fügen Sie den Link oben ein und klicken Sie auf 'Download'.",
+    albumTitle: "Fotos ohne Wasserzeichen:",
+    btnDlNoWm: "Video herunterladen (Ohne Wasserzeichen)",
+    btnDlWm: "Video herunterladen (Mit Wasserzeichen)",
+    btnDlAudio: "Musik herunterladen (MP3)",
+    btnDlImg: "Bild herunterladen"
+  },
+  th: {
+    docTitle: "SnapDown - ดาวน์โหลดวิดีโอ TikTok ไม่มีลายน้ำ ฟรี",
+    heroTitle: "ดาวน์โหลดวิดีโอและรูปภาพ TikTok <br><span class=\"text-[var(--amber)]\">ไม่มีลายน้ำ / โลโก้</span>",
+    heroSub: "เพียงวางลิงก์วิดีโอหรือรูปภาพด้านล่าง ประมวลผลทันที ฟรี 100%!",
+    inputPlaceholder: "วางลิงก์ TikTok ที่นี่...",
+    btnDownload: "ดาวน์โหลด",
+    msgProcessing: "กำลังประมวลผลและลบลายน้ำ...",
+    howToTitle: "วิธีคัดลอกลิงก์ TikTok",
+    step1: "เปิดแอป TikTok และค้นหาวิดีโอหรือรูปภาพที่ต้องการ",
+    step2: "กดปุ่ม 'แชร์' แล้วเลือก 'คัดลอกลิงก์'",
+    step3: "วางลิงก์ด้านบนแล้วกด 'ดาวน์โหลด' เพื่อลบลายน้ำ",
+    albumTitle: "รูปภาพไม่มีลายน้ำ:",
+    btnDlNoWm: "ดาวน์โหลดวิดีโอ (ไม่มีลายน้ำ)",
+    btnDlWm: "ดาวน์โหลดวิดีโอ (มีลายน้ำ)",
+    btnDlAudio: "ดาวน์โหลดเพลง (MP3)",
+    btnDlImg: "ดาวน์โหลดรูปนี้"
+  }
+};
 
-// ----- Điều khiển: Desktop -----
-const qualityElD = document.getElementById('quality');
-const qualityValD = document.getElementById('qualityVal');
-const formatElD  = document.getElementById('format');
-const resizeElD  = document.getElementById('resize');
-const compressBtnD = document.getElementById('compressBtn');
-const downloadAllBtnD = document.getElementById('downloadAllBtn');
-const clearAllBtnD = document.getElementById('clearAllBtnD');
+let currentLang = 'vi';
 
-// ----- Điều khiển: Mobile (bottom sheet) -----
-const qualityElM = document.getElementById('quality-m');
-const qualityValM = document.getElementById('qualityVal-m');
-const formatElM  = document.getElementById('format-m');
-const resizeElM  = document.getElementById('resize-m');
-const mobileSettingsBtn = document.getElementById('mobileSettingsBtn');
-const mobileSheet = document.getElementById('mobileSheet');
-const mobileSheetBackdrop = document.getElementById('mobileSheetBackdrop');
-const mobileSheetClose = document.getElementById('mobileSheetClose');
-const mobileSheetDone = document.getElementById('mobileSheetDone');
-const mobileBar = document.getElementById('mobileBar');
-const mobileCompressBtn = document.getElementById('mobileCompressBtn');
-const mobileDownloadAllBtn = document.getElementById('mobileDownloadAllBtn');
-const clearAllBtnM = document.getElementById('clearAllBtnM');
-const mobileUI = document.getElementById('mobileUI');
-
-// ----- Kết quả -----
-const resultsD = document.getElementById('resultsDesktop');
-const resultsM = document.getElementById('resultsMobile');
-const emptyStateD = document.getElementById('emptyStateD');
-const emptyStateM = document.getElementById('emptyStateM');
-const cardTplD = document.getElementById('cardTemplateDesktop');
-const cardTplM = document.getElementById('cardTemplateMobile');
-const statsBarD = document.getElementById('statsBarD');
-const statsBarM = document.getElementById('statsBarM');
-
-let queue = []; // { id, file, origURL, origSize, rotation, resultBlob, resultURL, resultSize, ext }
-
-function isDesktop(){ return window.matchMedia('(min-width:640px)').matches; }
-function getSettings(){
-  return isDesktop()
-    ? { quality:Number(qualityElD.value), format: formatElD.value, maxDim: Number(resizeElD.value)||0 }
-    : { quality:Number(qualityElM.value), format: formatElM.value, maxDim: Number(resizeElM.value)||0 };
-}
-
-qualityElD.addEventListener('input', () => qualityValD.textContent = qualityElD.value + '%');
-qualityElM.addEventListener('input', () => qualityValM.textContent = qualityElM.value + '%');
-
-// ---------- Mở/đóng bảng cài đặt trên mobile ----------
-function openSheet(){ mobileSheet.classList.add('open'); mobileSheetBackdrop.classList.remove('hidden'); requestAnimationFrame(()=>mobileSheetBackdrop.classList.add('open')); }
-function closeSheet(){ mobileSheet.classList.remove('open'); mobileSheetBackdrop.classList.remove('open'); setTimeout(()=>mobileSheetBackdrop.classList.add('hidden'),250); }
-mobileSettingsBtn.addEventListener('click', openSheet);
-mobileSheetClose.addEventListener('click', closeSheet);
-mobileSheetDone.addEventListener('click', closeSheet);
-mobileSheetBackdrop.addEventListener('click', closeSheet);
-
-// ---------- Kéo-thả, chọn file, dán ảnh ----------
-dropzoneD.addEventListener('click', () => fileInput.click());
-dropzoneM.addEventListener('click', () => fileInput.click());
-dropzoneD.addEventListener('dragover', e => { e.preventDefault(); dropzoneD.classList.add('dropzone-active'); });
-dropzoneD.addEventListener('dragleave', () => dropzoneD.classList.remove('dropzone-active'));
-dropzoneD.addEventListener('drop', e => {
-  e.preventDefault();
-  dropzoneD.classList.remove('dropzone-active');
-  handleFiles(e.dataTransfer.files);
-});
-fileInput.addEventListener('change', e => { handleFiles(e.target.files); fileInput.value = ''; });
-
-window.addEventListener('paste', e => {
-  const items = Array.from(e.clipboardData?.items || []);
-  const files = items.filter(i => i.type.startsWith('image/')).map(i => i.getAsFile());
-  if (files.length) handleFiles(files);
-});
-
-function handleFiles(fileList){
-  const files = Array.from(fileList).filter(f => /^image\/(png|jpeg|webp)$/.test(f.type));
-  if (!files.length) return;
-  files.forEach(file => {
-    const id = crypto.randomUUID();
-    const origURL = URL.createObjectURL(file);
-    queue.push({ id, file, origURL, origSize: file.size, rotation: 0, resultBlob: null, resultURL: null, resultSize: null });
+function applyLanguage(lang) {
+  currentLang = lang;
+  const dict = i18nData[lang] || i18nData['vi'];
+  
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key]) el.innerHTML = dict[key];
   });
-  renderQueue();
+  
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    if (dict[key]) el.placeholder = dict[key];
+  });
 }
 
-function bytesToStr(bytes){
-  if (bytes < 1024) return bytes + ' B';
-  if (bytes < 1024*1024) return (bytes/1024).toFixed(1) + ' KB';
-  return (bytes/1024/1024).toFixed(2) + ' MB';
-}
+document.getElementById('langSelect').addEventListener('change', (e) => {
+  applyLanguage(e.target.value);
+});
 
-function updateGlobalState(){
-  mobileUI.classList.toggle('has-queue', queue.length > 0);
-  mobileBar.classList.toggle('hidden', queue.length === 0);
-  clearAllBtnD.classList.toggle('hidden', queue.length === 0);
-  clearAllBtnM.classList.toggle('hidden', queue.length === 0);
-}
+// ==========================================
+// 2. XỬ LÝ LẤY LINK & TẢI VIDEO/ẢNH TIKTOK
+// ==========================================
+const form = document.getElementById('downloadForm');
+const pasteBtn = document.getElementById('pasteBtn');
+const videoUrlInput = document.getElementById('videoUrl');
+const resultContainer = document.getElementById('resultContainer');
+const loadingState = document.getElementById('loadingState');
+const resultCard = document.getElementById('resultCard');
 
-function renderQueue(){
-  updateGlobalState();
-  renderDesktopResults();
-  renderMobileResults();
-}
+// Nút Paste nhanh từ Clipboard
+pasteBtn.addEventListener('click', async () => {
+  try {
+    const text = await navigator.clipboard.readText();
+    videoUrlInput.value = text;
+  } catch (err) {
+    alert('Không thể đọc clipboard. Vui lòng dán thủ công!');
+  }
+});
 
-function renderDesktopResults(){
-  emptyStateD.classList.toggle('hidden', queue.length > 0);
-  resultsD.innerHTML = '';
-  queue.forEach(item => {
-    const node = cardTplD.content.cloneNode(true);
-    const afterImg = node.querySelector('.afterImg');
-    const beforeImg = node.querySelector('.beforeImg');
-    const slider = node.querySelector('.compare-slider');
-    const line = node.querySelector('.handle-line');
+// Submit Form
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const url = videoUrlInput.value.trim();
+  if (!url) return;
 
-    afterImg.src = item.resultURL || item.origURL;
-    beforeImg.src = item.origURL;
-    beforeImg.style.transform = `rotate(${item.rotation}deg)`;
+  resultContainer.classList.remove('hidden');
+  loadingState.classList.remove('hidden');
+  resultCard.classList.add('hidden');
 
-    slider.addEventListener('input', e => {
-      const v = e.target.value;
-      beforeImg.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
-      line.style.left = v + '%';
+  try {
+    // Gọi API TikTok Parser miễn phí (TikWM API)
+    const response = await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`);
+    const resData = await response.json();
+
+    if (resData.code === 0 && resData.data) {
+      renderResult(resData.data);
+    } else {
+      alert('Không tìm thấy video hoặc link không hợp lệ!');
+      resultContainer.classList.add('hidden');
+    }
+  } catch (error) {
+    console.error(error);
+    alert('Có lỗi xảy ra trong quá trình lấy dữ liệu. Vui lòng thử lại!');
+    resultContainer.classList.add('hidden');
+  } finally {
+    loadingState.classList.add('hidden');
+  }
+});
+
+// Hiển thị kết quả sau khi giải mã link
+function renderResult(data) {
+  const dict = i18nData[currentLang];
+  
+  document.getElementById('resAuthor').textContent = `@${data.author.unique_id || data.author.nickname}`;
+  document.getElementById('resTitle').textContent = data.title || 'TikTok Media';
+
+  const resCover = document.getElementById('resCover');
+  const resVideo = document.getElementById('resVideo');
+  const actionButtons = document.getElementById('actionButtons');
+  const imageGallery = document.getElementById('imageGallery');
+  const imageList = document.getElementById('imageList');
+
+  actionButtons.innerHTML = '';
+  imageList.innerHTML = '';
+
+  // TRƯỜNG HỢP 1: BÀI ĐĂNG DẠNG ALBUM ẢNH
+  if (data.images && data.images.length > 0) {
+    resCover.src = data.images[0];
+    resCover.classList.remove('hidden');
+    resVideo.classList.add('hidden');
+    imageGallery.classList.remove('hidden');
+
+    data.images.forEach((imgUrl, idx) => {
+      const imgItem = document.createElement('div');
+      imgItem.className = 'bg-black/30 rounded-lg p-2 border border-white/5 text-center flex flex-col gap-2';
+      imgItem.innerHTML = `
+        <img src="${imgUrl}" class="w-full h-32 object-cover rounded" alt="Photo ${idx+1}">
+        <a href="${imgUrl}" target="_blank" download class="text-[11px] font-mono bg-[var(--amber)] text-[#12141A] font-semibold py-1.5 rounded hover:brightness-110">
+          ${dict.btnDlImg || 'Tải Ảnh'} #${idx+1}
+        </a>
+      `;
+      imageList.appendChild(imgItem);
     });
 
-    fillCommon(node, item);
-    node.querySelector('.rotateBtn').addEventListener('click', () => rotateItem(item.id));
-    node.querySelector('.removeBtn').addEventListener('click', () => removeItem(item.id));
-    resultsD.appendChild(node);
-  });
-  const hasResults = queue.some(q => q.resultBlob);
-  downloadAllBtnD.classList.toggle('hidden', !hasResults);
-}
+  // TRƯỜNG HỢP 2: BÀI ĐĂNG DẠNG VIDEO
+  } else {
+    imageGallery.classList.add('hidden');
+    resVideo.src = data.play;
+    resVideo.classList.remove('hidden');
+    resCover.classList.add('hidden');
 
-function renderMobileResults(){
-  emptyStateM.classList.toggle('hidden', queue.length > 0);
-  resultsM.innerHTML = '';
-  queue.forEach(item => {
-    const node = cardTplM.content.cloneNode(true);
-    const previewImg = node.querySelector('.previewImg');
-    const toggleBtn = node.querySelector('.toggleBtn');
-    let showingAfter = true;
-    function paintPreview(){
-      previewImg.src = showingAfter ? (item.resultURL || item.origURL) : item.origURL;
-      previewImg.style.transform = showingAfter ? 'none' : `rotate(${item.rotation}deg)`;
-      toggleBtn.textContent = showingAfter ? 'Sau' : 'Trước';
+    // Nút tải Video No Watermark
+    actionButtons.innerHTML += `
+      <a href="${data.play}" target="_blank" download class="w-full font-display font-semibold text-xs sm:text-sm bg-[var(--amber)] text-[#12141A] py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:brightness-110 transition">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        ${dict.btnDlNoWm}
+      </a>
+    `;
+
+    // Nút tải Video Gốc (Có logo)
+    if (data.wmplay) {
+      actionButtons.innerHTML += `
+        <a href="${data.wmplay}" target="_blank" download class="w-full font-display font-semibold text-xs sm:text-sm border border-white/10 text-white py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-white/5 transition">
+          ${dict.btnDlWm}
+        </a>
+      `;
     }
-    paintPreview();
-    toggleBtn.addEventListener('click', () => { showingAfter = !showingAfter; paintPreview(); });
-
-    fillCommon(node, item);
-    node.querySelector('.rotateBtn').addEventListener('click', () => rotateItem(item.id));
-    node.querySelector('.removeBtn').addEventListener('click', () => removeItem(item.id));
-    resultsM.appendChild(node);
-  });
-  const hasResults = queue.some(q => q.resultBlob);
-  mobileDownloadAllBtn.classList.toggle('hidden', !hasResults);
-}
-
-function fillCommon(node, item){
-  node.querySelector('.fileName').textContent = item.file.name;
-  node.querySelector('.origSize').textContent = bytesToStr(item.origSize);
-  node.querySelector('.newSize').textContent = item.resultSize ? bytesToStr(item.resultSize) : bytesToStr(item.origSize);
-  const pctEl = node.querySelector('.savedPct');
-  pctEl.textContent = item.resultSize ? '-' + Math.max(0, Math.round((1 - item.resultSize/item.origSize) * 100)) + '%' : '';
-  const dlBtn = node.querySelector('.downloadBtn');
-  dlBtn.disabled = !item.resultBlob;
-  dlBtn.classList.toggle('opacity-40', !item.resultBlob);
-  dlBtn.addEventListener('click', () => downloadOne(item));
-}
-
-function rotateItem(id){
-  const item = queue.find(q => q.id === id);
-  if (!item) return;
-  item.rotation = (item.rotation + 90) % 360;
-  item.resultBlob = null; item.resultURL = null; item.resultSize = null;
-  renderQueue();
-}
-
-function removeItem(id){
-  const idx = queue.findIndex(q => q.id === id);
-  if (idx === -1) return;
-  const item = queue[idx];
-  URL.revokeObjectURL(item.origURL);
-  if (item.resultURL) URL.revokeObjectURL(item.resultURL);
-  queue.splice(idx, 1);
-  renderQueue();
-  updateStats();
-}
-
-function clearAll(){
-  queue.forEach(item => {
-    URL.revokeObjectURL(item.origURL);
-    if (item.resultURL) URL.revokeObjectURL(item.resultURL);
-  });
-  queue = [];
-  renderQueue();
-  statsBarD.classList.add('hidden');
-  statsBarM.classList.add('hidden');
-}
-clearAllBtnD.addEventListener('click', clearAll);
-clearAllBtnM.addEventListener('click', clearAll);
-
-function extFor(mime){
-  return { 'image/jpeg':'jpg', 'image/png':'png', 'image/webp':'webp' }[mime] || 'img';
-}
-
-// ---------- Nén / resize / xoay / chuyển đổi bằng Canvas API (100% client-side) ----------
-function compressOne(item, quality, targetFormat, maxDim){
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => {
-      let w = img.naturalWidth, h = img.naturalHeight;
-      if (maxDim){
-        const longest = Math.max(w, h);
-        if (longest > maxDim){ const scale = maxDim / longest; w = Math.round(w*scale); h = Math.round(h*scale); }
-      }
-      const angle = item.rotation || 0;
-      const swapped = angle === 90 || angle === 270;
-      const canvas = document.createElement('canvas');
-      canvas.width = swapped ? h : w;
-      canvas.height = swapped ? w : h;
-      const ctx = canvas.getContext('2d');
-
-      const outMime = targetFormat === 'auto' ? item.file.type : targetFormat;
-      if (outMime === 'image/jpeg'){
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      }
-      ctx.save();
-      ctx.translate(canvas.width/2, canvas.height/2);
-      ctx.rotate(angle * Math.PI/180);
-      ctx.drawImage(img, -w/2, -h/2, w, h);
-      ctx.restore();
-
-      const q = outMime === 'image/png' ? undefined : quality / 100;
-      canvas.toBlob(blob => {
-        if (!blob) return reject(new Error('Không thể xử lý ảnh này.'));
-        resolve({ blob, mime: outMime });
-      }, outMime, q);
-    };
-    img.onerror = () => reject(new Error('Không đọc được ảnh.'));
-    img.src = item.origURL;
-  });
-}
-
-async function runCompress(){
-  if (!queue.length) return;
-  const { quality, format, maxDim } = getSettings();
-  [compressBtnD, mobileCompressBtn].forEach(b => { b.disabled = true; });
-  compressBtnD.textContent = 'Đang xử lý...';
-  mobileCompressBtn.textContent = 'Đang xử lý...';
-
-  for (const item of queue){
-    try{
-      const { blob, mime } = await compressOne(item, quality, format, maxDim);
-      if (item.resultURL) URL.revokeObjectURL(item.resultURL);
-      item.resultBlob = blob;
-      item.resultURL  = URL.createObjectURL(blob);
-      item.resultSize = blob.size;
-      item.ext = extFor(mime);
-    } catch(err){ console.error(err); }
   }
-  renderQueue();
-  updateStats();
-  [compressBtnD, mobileCompressBtn].forEach(b => { b.disabled = false; });
-  compressBtnD.textContent = 'Nén ảnh ngay';
-  mobileCompressBtn.textContent = 'Nén ảnh';
-  closeSheet();
+
+  // Nút tải Nhạc MP3 (dùng chung cho cả video lẫn bài ảnh)
+  if (data.music) {
+    actionButtons.innerHTML += `
+      <a href="${data.music}" target="_blank" download class="w-full font-display font-semibold text-xs sm:text-sm border border-[var(--cyan)]/40 text-[var(--cyan)] py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-[var(--cyan)]/10 transition">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        ${dict.btnDlAudio}
+      </a>
+    `;
+  }
+
+  resultCard.classList.remove('hidden');
 }
-compressBtnD.addEventListener('click', runCompress);
-mobileCompressBtn.addEventListener('click', runCompress);
-
-function updateStats(){
-  const done = queue.filter(q => q.resultBlob);
-  if (!done.length){ statsBarD.classList.add('hidden'); statsBarM.classList.add('hidden'); return; }
-  const origTotal = done.reduce((s,q)=>s+q.origSize,0);
-  const newTotal  = done.reduce((s,q)=>s+q.resultSize,0);
-  const pct = origTotal ? Math.round((1 - newTotal/origTotal) * 100) : 0;
-
-  document.getElementById('statCountD').textContent = done.length;
-  document.getElementById('statOrigD').textContent = bytesToStr(origTotal);
-  document.getElementById('statNewD').textContent = bytesToStr(newTotal);
-  document.getElementById('statPctD').textContent = '-' + Math.max(0,pct) + '%';
-  statsBarD.classList.remove('hidden');
-
-  document.getElementById('statCountM').textContent = done.length;
-  document.getElementById('statOrigM').textContent = bytesToStr(origTotal);
-  document.getElementById('statNewM').textContent = bytesToStr(newTotal);
-  document.getElementById('statPctM').textContent = '-' + Math.max(0,pct) + '%';
-  statsBarM.classList.remove('hidden');
-}
-
-function downloadOne(item){
-  if (!item.resultBlob) return;
-  const a = document.createElement('a');
-  const base = item.file.name.replace(/\.[^.]+$/, '');
-  a.href = item.resultURL;
-  a.download = base + '-compressed.' + (item.ext || 'img');
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-}
-
-async function downloadAllZip(){
-  const done = queue.filter(q => q.resultBlob);
-  if (!done.length) return;
-  downloadAllBtnD.textContent = 'Đang nén file zip...';
-  mobileDownloadAllBtn.textContent = 'Đang nén file zip...';
-  const zip = new JSZip();
-  done.forEach(item => {
-    const base = item.file.name.replace(/\.[^.]+$/, '');
-    zip.file(base + '-compressed.' + (item.ext || 'img'), item.resultBlob);
-  });
-  const content = await zip.generateAsync({ type: 'blob' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(content);
-  a.download = 'snaplite-images.zip';
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  downloadAllBtnD.textContent = 'Tải tất cả (.zip)';
-  mobileDownloadAllBtn.textContent = 'Tải tất cả';
-}
-downloadAllBtnD.addEventListener('click', downloadAllZip);
-mobileDownloadAllBtn.addEventListener('click', downloadAllZip);
-
-renderQueue();
 </script>
 
 </body>
