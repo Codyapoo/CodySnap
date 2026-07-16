@@ -142,11 +142,14 @@
           <input type="url" id="videoUrl" required
             placeholder="Dán link TikTok vào đây (vd: https://vt.tiktok.com/...)"
             data-i18n-ph="inputPlaceholder"
-            class="w-full bg-[var(--panel-2)] border border-white/10 rounded-xl pl-4 pr-20 py-4 text-sm text-white placeholder-[var(--muted)] focus:outline-none focus:border-cyan-400 transition shadow-inner"
+            class="w-full bg-[var(--panel-2)] border border-white/10 rounded-xl pl-4 pr-24 py-4 text-sm text-white placeholder-[var(--muted)] focus:outline-none focus:border-cyan-400 transition shadow-inner"
           >
-          <button type="button" id="pasteBtn" class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-mono bg-white/10 hover:bg-white/20 text-cyan-300 px-3 py-1.5 rounded-lg transition border border-white/5">
-            Paste
-          </button>
+          <div class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
+            <button type="button" id="clearBtn" class="hidden text-xs text-slate-400 hover:text-white p-1.5 transition" title="Clear">✕</button>
+            <button type="button" id="pasteBtn" class="text-xs font-mono bg-white/10 hover:bg-white/20 text-cyan-300 px-3 py-1.5 rounded-lg transition border border-white/5">
+              Paste
+            </button>
+          </div>
         </div>
         <button type="submit" id="submitBtn" class="font-bold bg-gradient-to-r from-violet-600 to-cyan-500 hover:brightness-110 active:scale-[0.98] text-white px-8 py-4 rounded-xl transition duration-200 flex items-center justify-center gap-2 shrink-0 shadow-lg shadow-violet-500/25">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
@@ -330,12 +333,21 @@
     <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
       <p>© <span id="year"></span> CodySnap. All rights reserved.</p>
       <div class="flex gap-6">
-        <a href="#" class="hover:text-white transition">Privacy Policy</a>
-        <a href="#" class="hover:text-white transition">Terms of Service</a>
-        <a href="#" class="hover:text-white transition">Contact Us</a>
+        <button id="btnPrivacy" class="hover:text-white transition cursor-pointer" data-i18n="footerPrivacy">Privacy Policy</button>
+        <button id="btnTerms" class="hover:text-white transition cursor-pointer" data-i18n="footerTerms">Terms of Service</button>
+        <button id="btnContact" class="hover:text-white transition cursor-pointer" data-i18n="footerContact">Contact Us</button>
       </div>
     </div>
   </footer>
+
+  <!-- MODAL BỔ SUNG CHO FOOTER (PRIVACY, TERMS, CONTACT) -->
+  <div id="infoModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-[var(--panel)] border border-white/15 rounded-2xl p-6 max-w-lg w-full max-h-[80vh] overflow-y-auto relative shadow-2xl fade-in">
+      <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg font-bold">✕</button>
+      <h3 id="modalTitle" class="text-lg font-bold text-white mb-4 border-b border-white/10 pb-2"></h3>
+      <div id="modalBody" class="text-xs text-[var(--muted)] leading-relaxed space-y-3"></div>
+    </div>
+  </div>
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -391,7 +403,14 @@ const i18nData = {
     seoTitle: "Công cụ tải Video TikTok HD Không Logo hàng đầu",
     seoP1: "CodySnap là một trong những công cụ hỗ trợ tải video TikTok không dán logo (Watermark) trực tuyến tốt nhất hiện nay.",
     seoP2: "Với công nghệ tối ưu hóa, CodySnap cho phép tải xuống video định dạng MP4 độ phân giải cao HD, tải nhạc MP3 chất lượng cao.",
-    toastCopied: "Đã sao chép liên kết!", toastNoUrl: "Vui lòng dán link TikTok!", toastNotFound: "Không tìm thấy video hoặc link không hợp lệ!", toastError: "Có lỗi xảy ra. Vui lòng thử lại!"
+    toastCopied: "Đã sao chép liên kết!", toastNoUrl: "Vui lòng dán link TikTok!", toastNotFound: "Không tìm thấy video hoặc link không hợp lệ!", toastError: "Có lỗi xảy ra. Vui lòng thử lại!",
+    footerPrivacy: "Chính sách bảo mật", footerTerms: "Điều khoản dịch vụ", footerContact: "Liên hệ",
+    privacyTitle: "Chính Sách Bảo Mật",
+    privacyBody: "CodySnap tôn trọng quyền riêng tư của bạn. Chúng tôi không lưu trữ dữ liệu video, thông tin cá nhân hay bất kỳ tệp tin tải về nào trên máy chủ. Mọi thao tác đều được xử lý trực tiếp qua API.",
+    termsTitle: "Điều Khoản Dịch Vụ",
+    termsBody: "CodySnap cung cấp công cụ miễn phí hỗ trợ tải xuống nội dung công khai trên TikTok cho mục đích cá nhân. Người dùng chịu trách nhiệm tuân thủ bản quyền của tác giả nội dung gốc.",
+    contactTitle: "Liên Hệ Với Chúng Tôi",
+    contactBody: "Mọi thắc mắc, góp ý hoặc báo lỗi dịch vụ, vui lòng liên hệ với quản trị viên qua email: <a href='mailto:codymc2026@gmail.com' class='text-cyan-400 underline font-mono'>codymc2026@gmail.com</a>"
   },
   en: {
     docTitle: "CodySnap - Free TikTok Downloader Without Watermark",
@@ -429,7 +448,14 @@ const i18nData = {
     seoTitle: "Best HD TikTok Video Downloader Without Watermark",
     seoP1: "CodySnap is one of the best online tools for downloading TikTok videos without logos or watermarks.",
     seoP2: "Effortlessly save high-definition MP4 videos, MP3 music, and full photo slide albums.",
-    toastCopied: "Link copied!", toastNoUrl: "Please paste a TikTok link!", toastNotFound: "Video not found or invalid link!", toastError: "Something went wrong. Please try again!"
+    toastCopied: "Link copied!", toastNoUrl: "Please paste a TikTok link!", toastNotFound: "Video not found or invalid link!", toastError: "Something went wrong. Please try again!",
+    footerPrivacy: "Privacy Policy", footerTerms: "Terms of Service", footerContact: "Contact Us",
+    privacyTitle: "Privacy Policy",
+    privacyBody: "CodySnap respects your privacy. We do not store downloaded videos, personal information, or user activity. All processing is executed via API.",
+    termsTitle: "Terms of Service",
+    termsBody: "CodySnap provides a free tool for personal media downloads. Users are solely responsible for adhering to original copyright laws.",
+    contactTitle: "Contact Us",
+    contactBody: "For inquiries or support, please contact us via email: <a href='mailto:codymc2026@gmail.com' class='text-cyan-400 underline font-mono'>codymc2026@gmail.com</a>"
   },
   zh: {
     docTitle: "CodySnap - 免费无水印TikTok下载器",
@@ -467,7 +493,11 @@ const i18nData = {
     seoTitle: "领先的高清无Logo TikTok视频下载工具",
     seoP1: "CodySnap是目前最好的在线TikTok无水印/无Logo视频下载工具之一。",
     seoP2: "凭借优化技术，CodySnap可让您轻松下载高清MP4视频、高质量MP3音乐以及完整图集。",
-    toastCopied: "链接已复制！", toastNoUrl: "请粘贴TikTok链接！", toastNotFound: "未找到视频或链接无效！", toastError: "出现错误，请重试！"
+    toastCopied: "链接已复制！", toastNoUrl: "请粘贴TikTok链接！", toastNotFound: "未找到视频或链接无效！", toastError: "出现错误，请重试！",
+    footerPrivacy: "隐私政策", footerTerms: "服务条款", footerContact: "联系我们",
+    privacyTitle: "隐私政策", privacyBody: "CodySnap 尊重您的隐私。我们不会在服务器上存储视频或个人数据。",
+    termsTitle: "服务条款", termsBody: "CodySnap 提供免费的个人下载服务。使用者需遵守版权法规。",
+    contactTitle: "联系我们", contactBody: "如有任何疑问，请通过邮箱联系我们: <a href='mailto:codymc2026@gmail.com' class='text-cyan-400 underline font-mono'>codymc2026@gmail.com</a>"
   },
   de: {
     docTitle: "CodySnap - Kostenloser TikTok Downloader ohne Wasserzeichen",
@@ -505,7 +535,11 @@ const i18nData = {
     seoTitle: "Bester HD TikTok Video Downloader ohne Wasserzeichen",
     seoP1: "CodySnap ist eines der besten Online-Tools zum Herunterladen von TikTok-Videos ohne Logos oder Wasserzeichen.",
     seoP2: "Speichere mühelos hochauflösende MP4-Videos, MP3-Musik und komplette Fotoalben.",
-    toastCopied: "Link kopiert!", toastNoUrl: "Bitte einen TikTok-Link einfügen!", toastNotFound: "Video nicht gefunden oder ungültiger Link!", toastError: "Etwas ist schiefgelaufen. Bitte versuche es erneut!"
+    toastCopied: "Link kopiert!", toastNoUrl: "Bitte einen TikTok-Link einfügen!", toastNotFound: "Video nicht gefunden oder ungültiger Link!", toastError: "Etwas ist schiefgelaufen. Bitte versuche es erneut!",
+    footerPrivacy: "Datenschutz", footerTerms: "Nutzungsbedingungen", footerContact: "Kontakt",
+    privacyTitle: "Datenschutzbestimmungen", privacyBody: "CodySnap speichert keine persönliche Daten oder Videos auf Servern.",
+    termsTitle: "Nutzungsbedingungen", termsBody: "Kostenlose Nutzung für private Zwecke. Urheberrechte beachten.",
+    contactTitle: "Kontaktieren Sie uns", contactBody: "E-Mail: <a href='mailto:codymc2026@gmail.com' class='text-cyan-400 underline font-mono'>codymc2026@gmail.com</a>"
   },
   th: {
     docTitle: "CodySnap - ดาวน์โหลดวิดีโอ TikTok ไม่มีลายน้ำ ฟรี",
@@ -543,7 +577,11 @@ const i18nData = {
     seoTitle: "เครื่องมือดาวน์โหลดวิดีโอ TikTok HD ไม่มีโลโก้อันดับต้น",
     seoP1: "CodySnap เป็นหนึ่งในเครื่องมือออนไลน์ที่ดีที่สุดสำหรับดาวน์โหลดวิดีโอ TikTok โดยไม่มีโลโก้หรือลายน้ำ",
     seoP2: "ด้วยเทคโนโลยีที่ปรับให้เหมาะสม CodySnap ช่วยให้คุณบันทึกวิดีโอ MP4 ความละเอียดสูง เพลง MP3 คุณภาพสูง และอัลบั้มรูปภาพได้อย่างง่ายดาย",
-    toastCopied: "คัดลอกลิงก์แล้ว!", toastNoUrl: "กรุณาวางลิงก์ TikTok!", toastNotFound: "ไม่พบวิดีโอหรือลิงก์ไม่ถูกต้อง!", toastError: "เกิดข้อผิดพลาด กรุณาลองอีกครั้ง!"
+    toastCopied: "คัดลอกลิงก์แล้ว!", toastNoUrl: "กรุณาวางลิงก์ TikTok!", toastNotFound: "ไม่พบวิดีโอหรือลิงก์ไม่ถูกต้อง!", toastError: "เกิดข้อผิดพลาด กรุณาลองอีกครั้ง!",
+    footerPrivacy: "นโยบายความเป็นส่วนตัว", footerTerms: "ข้อกำหนดการให้บริการ", footerContact: "ติดต่อเรา",
+    privacyTitle: "นโยบายความเป็นส่วนตัว", privacyBody: "CodySnap ไม่เก็บข้อมูลส่วนตัวหรือวิดีโอใดๆ บนเซิร์ฟเวอร์",
+    termsTitle: "ข้อกำหนดการให้บริการ", termsBody: "ใช้งานได้ฟรีเพื่อวัตถุประสงค์ส่วนตัวเท่านั้น",
+    contactTitle: "ติดต่อเรา", contactBody: "อีเมล: <a href='mailto:codymc2026@gmail.com' class='text-cyan-400 underline font-mono'>codymc2026@gmail.com</a>"
   }
 };
 
@@ -572,14 +610,28 @@ function t(key) {
 
 const form = document.getElementById('downloadForm');
 const videoUrlInput = document.getElementById('videoUrl');
+const clearBtn = document.getElementById('clearBtn');
 const resultContainer = document.getElementById('resultContainer');
 const loadingState = document.getElementById('loadingState');
 const resultCard = document.getElementById('resultCard');
 let lastData = null;
 
+videoUrlInput.addEventListener('input', () => {
+  if (videoUrlInput.value.length > 0) clearBtn.classList.remove('hidden');
+  else clearBtn.classList.add('hidden');
+});
+
+clearBtn.addEventListener('click', () => {
+  videoUrlInput.value = '';
+  clearBtn.classList.add('hidden');
+  videoUrlInput.focus();
+});
+
 document.getElementById('pasteBtn').addEventListener('click', async () => {
   try {
-    videoUrlInput.value = await navigator.clipboard.readText();
+    const text = await navigator.clipboard.readText();
+    videoUrlInput.value = text;
+    if (text) clearBtn.classList.remove('hidden');
   } catch (err) {
     showToast(t('toastError'), 'error');
   }
@@ -621,9 +673,19 @@ function formatCount(n) {
   return String(n);
 }
 
+function forceDownload(url, filename) {
+  const a = document.createElement('a');
+  a.href = url;
+  a.target = '_blank';
+  a.download = filename || 'download';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
 function renderResult(data) {
   const dict = i18nData[currentLang] || i18nData['vi'];
-  document.getElementById('resAuthor').textContent = `@${data.author.unique_id || data.author.nickname}`;
+  document.getElementById('resAuthor').textContent = `@${data.author?.unique_id || data.author?.nickname || 'tiktok'}`;
   document.getElementById('resTitle').textContent = data.title || 'TikTok Media';
 
   const statsBits = [];
@@ -652,9 +714,9 @@ function renderResult(data) {
       imgItem.className = 'bg-black/30 rounded-xl p-2.5 border border-white/10 text-center flex flex-col gap-2.5';
       imgItem.innerHTML = `
         <img src="${imgUrl}" class="w-full h-36 object-cover rounded-lg" alt="Photo">
-        <a href="${imgUrl}" target="_blank" download class="text-xs font-mono bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-2 rounded-lg transition">
+        <button onclick="forceDownload('${imgUrl}', 'codysnap-img-${idx+1}.jpg')" class="text-xs font-mono bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-2 rounded-lg transition">
           ${dict.btnDlImg || 'Tải Ảnh'} #${idx+1}
-        </a>
+        </button>
       `;
       imageList.appendChild(imgItem);
     });
@@ -664,29 +726,27 @@ function renderResult(data) {
     resVideo.classList.remove('hidden');
     resCover.classList.add('hidden');
 
-    actionButtons.innerHTML += `
-      <a href="${data.play}" target="_blank" download class="w-full font-bold text-sm bg-gradient-to-r from-violet-600 to-cyan-500 text-white py-3.5 px-5 rounded-xl flex items-center justify-center gap-2 hover:brightness-110 transition shadow-lg shadow-violet-500/20">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-        ${dict.btnDlNoWm}
-      </a>
-    `;
+    const btnNoWm = document.createElement('button');
+    btnNoWm.className = "w-full font-bold text-sm bg-gradient-to-r from-violet-600 to-cyan-500 text-white py-3.5 px-5 rounded-xl flex items-center justify-center gap-2 hover:brightness-110 transition shadow-lg shadow-violet-500/20 cursor-pointer";
+    btnNoWm.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg> ${dict.btnDlNoWm}`;
+    btnNoWm.onclick = () => forceDownload(data.play, 'codysnap-video-nowatermark.mp4');
+    actionButtons.appendChild(btnNoWm);
 
     if (data.wmplay) {
-      actionButtons.innerHTML += `
-        <a href="${data.wmplay}" target="_blank" download class="w-full font-semibold text-xs sm:text-sm border border-white/10 text-white py-3 px-5 rounded-xl flex items-center justify-center gap-2 hover:bg-white/5 transition">
-          ${dict.btnDlWm}
-        </a>
-      `;
+      const btnWm = document.createElement('button');
+      btnWm.className = "w-full font-semibold text-xs sm:text-sm border border-white/10 text-white py-3 px-5 rounded-xl flex items-center justify-center gap-2 hover:bg-white/5 transition cursor-pointer";
+      btnWm.textContent = dict.btnDlWm;
+      btnWm.onclick = () => forceDownload(data.wmplay, 'codysnap-video-watermark.mp4');
+      actionButtons.appendChild(btnWm);
     }
   }
 
   if (data.music) {
-    actionButtons.innerHTML += `
-      <a href="${data.music}" target="_blank" download class="w-full font-semibold text-xs sm:text-sm border border-cyan-500/30 text-cyan-300 py-3 px-5 rounded-xl flex items-center justify-center gap-2 hover:bg-cyan-500/10 transition">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-        ${dict.btnDlAudio}
-      </a>
-    `;
+    const btnMusic = document.createElement('button');
+    btnMusic.className = "w-full font-semibold text-xs sm:text-sm border border-cyan-500/30 text-cyan-300 py-3 px-5 rounded-xl flex items-center justify-center gap-2 hover:bg-cyan-500/10 transition cursor-pointer";
+    btnMusic.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg> ${dict.btnDlAudio}`;
+    btnMusic.onclick = () => forceDownload(data.music, 'codysnap-audio.mp3');
+    actionButtons.appendChild(btnMusic);
   }
 
   resultCard.classList.remove('hidden');
@@ -713,7 +773,7 @@ function addToHistory(data) {
   const history = getHistory();
   history.unshift({
     title: data.title || 'TikTok Media',
-    author: data.author.unique_id || data.author.nickname || '',
+    author: data.author?.unique_id || data.author?.nickname || '',
     cover: data.cover || (data.images && data.images[0]) || '',
     url: data.play || (data.images && data.images[0]) || '',
     time: Date.now()
@@ -735,9 +795,9 @@ function renderHistory() {
         <p class="text-xs font-medium text-white truncate">${item.title}</p>
         <p class="text-[11px] text-[var(--muted)] font-mono mt-0.5">@${item.author}</p>
       </div>
-      <a href="${item.url}" target="_blank" download class="shrink-0 p-2 rounded-lg bg-white/5 hover:bg-white/10 text-cyan-400 transition">
+      <button onclick="forceDownload('${item.url}', 'codysnap-download.mp4')" class="shrink-0 p-2 rounded-lg bg-white/5 hover:bg-white/10 text-cyan-400 transition cursor-pointer">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-      </a>
+      </button>
     </div>
   `).join('');
 }
@@ -750,11 +810,11 @@ document.getElementById('clearHistoryBtn').addEventListener('click', () => {
 
 renderHistory();
 
+// XỬ LÝ WATERMARK REMOVER TOOL
 const wmUploadZone = document.getElementById('wmUploadZone');
 const wmFileInput = document.getElementById('wmFileInput');
 const wmEditor = document.getElementById('wmEditor');
 const wmCanvas = document.getElementById('wmCanvas');
-const wmCanvasWrap = document.getElementById('wmCanvasWrap');
 const wmSelBox = document.getElementById('wmSelBox');
 const wmApplyBtn = document.getElementById('wmApplyBtn');
 const wmResetBtn = document.getElementById('wmResetBtn');
@@ -848,7 +908,7 @@ function removeLogoPatch(box) {
   const x = Math.round(box.x), y = Math.round(box.y), w = Math.round(box.w), h = Math.round(box.h);
   const cw = wmCanvas.width, ch = wmCanvas.height;
 
-  let sx = x, sy = y - h, sw = w, sh = h;
+  let sx = x, sy = y - h;
   if (sy < 0) { sy = y + h; if (sy + h > ch) { sx = x - w; sy = y; if (sx < 0) { sx = x + w; sy = y; if (sx + w > cw) { sx = Math.max(0, x); sy = Math.max(0, y - h); } } } }
   sx = Math.max(0, Math.min(cw - w, sx));
   sy = Math.max(0, Math.min(ch - h, sy));
@@ -876,6 +936,27 @@ function removeLogoPatch(box) {
   }
   wmCtx.putImageData(region, rx, ry);
 }
+
+// XỬ LÝ MODAL TRONG FOOTER
+const infoModal = document.getElementById('infoModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalBody = document.getElementById('modalBody');
+const closeModal = document.getElementById('closeModal');
+
+function openModal(titleKey, bodyKey) {
+  modalTitle.textContent = t(titleKey);
+  modalBody.innerHTML = t(bodyKey);
+  infoModal.classList.remove('hidden');
+}
+
+document.getElementById('btnPrivacy').addEventListener('click', () => openModal('privacyTitle', 'privacyBody'));
+document.getElementById('btnTerms').addEventListener('click', () => openModal('termsTitle', 'termsBody'));
+document.getElementById('btnContact').addEventListener('click', () => openModal('contactTitle', 'contactBody'));
+
+closeModal.addEventListener('click', () => infoModal.classList.add('hidden'));
+infoModal.addEventListener('click', (e) => {
+  if (e.target === infoModal) infoModal.classList.add('hidden');
+});
 </script>
 
 </body>
